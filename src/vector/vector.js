@@ -4,7 +4,7 @@
  * @param {Array} _elem 初始数组
  * @return {Vector} Instance
  */
-function Vector(_elem = [], defaultValue) {
+function Vector(_elem = []) {
   /**
    * 获取向量大小
    * @time O(1)
@@ -175,7 +175,8 @@ Vector.binSearch = function binSearch(_elem, e, lo = 0, hi = _elem.length) {
   while (lo < hi) {
     const mi = (lo + hi) >> 1; // 寻找中点
     // 经比较后确认深入 [lo, mi) 或 [mi + 1, hi)
-    e < _elem[mi] ? (hi = mi) : (lo = mi + 1);
+    if (e < _elem[mi]) hi = mi;
+    else lo = mi + 1;
   }
   // 查找成功不能提前终止
 
@@ -183,7 +184,8 @@ Vector.binSearch = function binSearch(_elem, e, lo = 0, hi = _elem.length) {
   return lo - 1;
 };
 
-/** 排序算法 起泡排序, 具有稳定性
+/**
+ * 排序算法 起泡排序, 具有稳定性
  * @time O(N²)
  * @space O(1)
  *
@@ -193,7 +195,7 @@ Vector.binSearch = function binSearch(_elem, e, lo = 0, hi = _elem.length) {
  * @return {void}
  */
 Vector.bubbleSort = function bubbleSort(_elem, lo = 0, hi = _elem.length) {
-  let _lo = lo;
+  const _lo = lo;
   let sorted = true;
   while ((lo += 1) < hi) {
     if (_elem[lo - 1] > _elem[lo]) {
@@ -206,7 +208,8 @@ Vector.bubbleSort = function bubbleSort(_elem, lo = 0, hi = _elem.length) {
   if (!sorted) Vector.bubbleSort(_elem, _lo, (hi -= 1));
 };
 
-/** 排序算法 归并排序之合并
+/**
+ * 排序算法 归并排序之合并
  * @time O(N)
  * @space O(logN)
  *
@@ -220,7 +223,7 @@ Vector.merge = function merge(_elem, lo, mi, hi) {
   let r = mi;
   while (l < mi && r < hi) {
     // 左边的头元素更小，则无须任何操作，l向后滑动一个
-    if (_elem[r] > _elem[r]) {
+    if (_elem[r] < _elem[l]) {
       const tmp = _elem[r];
       _elem[r] = _elem[l];
       _elem[l] = tmp;
@@ -231,7 +234,8 @@ Vector.merge = function merge(_elem, lo, mi, hi) {
   }
 };
 
-/** 排序算法 归并排序
+/**
+ * 排序算法 归并排序
  * @time O(NlogN)
  * @space O(logN)
  *

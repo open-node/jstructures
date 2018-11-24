@@ -1,0 +1,55 @@
+{
+  "name": "javascript-data-structures",
+  "version": "0.1.0",
+  "description": "JavaScript Data Structures incudes Vector, List, Tree, Graph, Heap...etc",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./src/*",
+    "test": "jest",
+    "ci": "npm run lint && npm run test -- --coverage"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-node/javascript-data-structures.git"
+  },
+  "keywords": [
+    "computer-science",
+    "cs",
+    "algorithms",
+    "data-structures",
+    "javascript",
+    "algorithm",
+    "javascript-data-structures",
+    "sorting-algorithms",
+    "heap",
+    "left-heap",
+    "graph",
+    "tree",
+    "interview",
+    "interview-preparation"
+  ],
+  "author": "Redstone Zhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/open-node/javascript-data-structures/issues"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.4",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.3.0",
+    "pre-commit": "^1.2.2"
+  },
+  "homepage": "https://github.com/open-node/javascript-data-structures#readme"
+}
