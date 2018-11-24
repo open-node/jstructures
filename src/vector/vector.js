@@ -236,7 +236,7 @@ Vector.swap = function swap(_elem, i, j) {
 Vector.merge = function merge(_elem, lo, mi, hi) {
   let l = lo;
   let r = mi;
-  let lMin = lo; // 左侧最小是的索引
+  let lMin = lo; // 左侧最小值的索引
   while (l < mi && r < hi) {
     // 右侧的当前值比左侧最小值小
     // 交换右侧和左侧当前值，注意不是左侧最小值, 左侧最小值不变
