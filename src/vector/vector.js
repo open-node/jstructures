@@ -88,7 +88,7 @@ function Vector(_elem = []) {
    * @param {number} hi 要查找的结束秩
    * @return {number} 等于 e 的元素最大的秩
    */
-  _elem.findElem = function findElem(e, lo, hi) {
+  _elem.findElem = function findElem(e, lo = 0, hi = _elem.length) {
     while (lo < hi-- && _elem[hi] !== e) {}
     return hi;
   };
@@ -133,7 +133,7 @@ function Vector(_elem = []) {
    *
    * @return {number} 被删除的元素个数
    */
-  _elem.deduplicate = function uniquify() {
+  _elem.uniquify = function uniquify() {
     const { length } = _elem;
     let i = 0;
     let j = 0;
@@ -209,6 +209,21 @@ Vector.bubbleSort = function bubbleSort(_elem, lo = 0, hi = _elem.length) {
 };
 
 /**
+ * 交换元素
+ * @param {Vector} _elem 要操作的向量或者数组
+ * @time O(1)
+ * @space O(1)
+ *
+ * @param {number} i 索引
+ * @param {number} j 索引
+ */
+Vector.swap = function swap(_elem, i, j) {
+  const tmp = _elem[i];
+  _elem[i] = _elem[j];
+  _elem[j] = tmp;
+};
+
+/**
  * 排序算法 归并排序之合并
  * @time O(N)
  * @space O(logN)
@@ -221,14 +236,25 @@ Vector.bubbleSort = function bubbleSort(_elem, lo = 0, hi = _elem.length) {
 Vector.merge = function merge(_elem, lo, mi, hi) {
   let l = lo;
   let r = mi;
+  let lMin = lo; // 左侧最小是的索引
   while (l < mi && r < hi) {
-    // 左边的头元素更小，则无须任何操作，l向后滑动一个
-    if (_elem[r] < _elem[l]) {
-      const tmp = _elem[r];
-      _elem[r] = _elem[l];
-      _elem[l] = tmp;
+    // 右侧的当前值比左侧最小值小
+    // 交换右侧和左侧当前值，注意不是左侧最小值, 左侧最小值不变
+    if (_elem[r] < _elem[lMin]) {
+      Vector.swap(_elem, r, l);
+      if (l === lMin) lMin = r;
       mi += 1;
       r += 1;
+    } else if (lMin !== l) {
+      // 右侧当前值不小于左侧最小值，则左侧最小值应该排到位,
+      // 此时需要交换左侧最小值和左侧当前值
+      Vector.swap(_elem, l, lMin);
+
+      // 说明转移到右侧的临时元素消耗完毕
+      // lMin 重新指向左侧当前值
+      if (lMin + 1 !== r) lMin += 1;
+    } else {
+      lMin += 1;
     }
     l += 1;
   }
@@ -244,11 +270,11 @@ Vector.merge = function merge(_elem, lo, mi, hi) {
  * @param {number} hi 要查找的结束秩
  * @return {void}
  */
-Vector.mergeSort = function bubbleSort(_elem, lo = 0, hi = _elem.length) {
+Vector.mergeSort = function mergeSort(_elem, lo = 0, hi = _elem.length) {
   if (hi - lo < 2) return; // 单个元素自然是有序的
   const mi = (lo + hi) >> 1; // 找到中点
-  Vector.mergeSort(lo, mi); // 分治思想, 左半段
-  Vector.mergeSort(mi, hi); // 分治思想，右半段
+  Vector.mergeSort(_elem, lo, mi); // 分治思想, 左半段
+  Vector.mergeSort(_elem, mi, hi); // 分治思想，右半段
   Vector.merge(_elem, lo, mi, hi);
 };
 
