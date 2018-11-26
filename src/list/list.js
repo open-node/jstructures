@@ -61,7 +61,7 @@ function List() {
    */
   me.insertAsFirst = function insertAsFirst(e) {
     _size += 1;
-    header.insertAsSucc(e);
+    return header.insertAsSucc(e);
   };
 
   /**
@@ -74,7 +74,7 @@ function List() {
    */
   me.insertAsLast = function insertAsLast(e) {
     _size += 1;
-    tailer.insertAsPred(e);
+    return tailer.insertAsPred(e);
   };
 
   /**
@@ -151,7 +151,6 @@ function List() {
   me.findElem = function findElem(e, n = _size, p = tailer) {
     while (header !== (p = p.pred) && 0 < n--) {
       if (e === p.data) return p;
-      p = p.pred;
     }
     return null;
   };
@@ -168,7 +167,7 @@ function List() {
    * @return {ListNode} 等于 e 的元素最后的节点
    */
   me.search = function search(e, n = _size, p = tailer) {
-    while (0 < n--) {
+    while (0 <= n--) {
       if ((p = p.pred).data <= e) return p;
     }
     return p;
@@ -185,9 +184,11 @@ function List() {
     if (_size < 2) return 0; // 退化平凡情况
     const length = _size;
     let p = header;
+    let rank = 0;
     while (tailer !== (p = p.succ)) {
-      const q = me.find(p.data, p);
+      const q = me.findElem(p.data, rank, p);
       if (q) me.remove(q);
+      else rank += 1;
     }
 
     return length - _size;
@@ -210,7 +211,7 @@ function List() {
       else me.remove(q);
     }
 
-    return _size - length;
+    return length - _size;
   };
 
   /**
@@ -247,7 +248,7 @@ function List() {
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
-   * @return void
+   * @return {ListNode}
    */
   me.selectMax = function selectMax(p = header.succ, n = _size) {
     let max = p;
@@ -255,6 +256,7 @@ function List() {
       if (p.data > max.data) max = p;
       p = p.succ;
     }
+
     return max;
   };
 
@@ -265,15 +267,19 @@ function List() {
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
-   * @return void
+   * @return {ListNode} 排序后的起始节点
    */
   me.insertionSort = function insertionSort(p = header.succ, n = _size) {
+    const head = p.pred;
+
     for (let i = 0; i < n; i += 1) {
       // 逐各操作各点
       me.insertA(me.search(p.data, i, p), p.data); // 查找到不大于当前值的位置
       p = p.succ;
       me.remove(p.pred);
     }
+
+    return head.succ;
   };
 
   /**
@@ -283,7 +289,7 @@ function List() {
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
-   * @return void
+   * @return {ListNode} 排序后的起始节点
    */
   me.selectionSort = function selectionSort(p = header.succ, n = _size) {
     // 定义好初始待排序区间 head -> tail
@@ -296,6 +302,8 @@ function List() {
       tail = tail.pred;
       n -= 1;
     }
+
+    return head.succ;
   };
 
   /**
@@ -304,28 +312,25 @@ function List() {
    * @space O(1)
    * @param {ListNode} p 合并起始节点
    * @param {number} n
-   * @param {List} list 要合并的另外一个列表
+   * @param {List} he 要合并的另外一个列表
    * @param {ListNode} q 合并的另外一个列表起始节点
    * @param {number} m 要合并的另外一个列表的节点数
    *
-   * @return void
+   * @return {ListNode} 归并后的起始节点
    */
-  me.merge = function merge(
-    p = header.succ,
-    n = _size,
-    list,
-    q,
-    m = list.size()
-  ) {
+  me.merge = function merge(p, n, he, q, m) {
+    const head = p.pred;
     while (0 < m) {
       if (0 < n && p.data <= q.data) {
         if (q === (p = p.succ)) break;
         n -= 1;
       } else {
-        me.insertB(p, list.remove((q = q.succ).pred));
+        me.insertB(p, he.remove((q = q.succ).pred));
         m -= 1;
       }
     }
+
+    return head.succ;
   };
 
   /**
@@ -335,18 +340,20 @@ function List() {
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
-   * @return void
+   * @return {ListNode} 排序后的起始节点
    */
   me.mergeSort = function mergeSort(p = header.succ, n = _size) {
-    if (n < 2) return;
+    if (n < 2) return p;
     const m = n >> 1;
 
     let q = p;
     for (let i = 0; i < m; i += 1) q = q.succ;
 
-    me.mergeSort(p, m);
-    me.mergeSort(q, n - m);
-    me.merge(p, m, this, q, n - m);
+    p = me.mergeSort(p, m);
+    q = me.mergeSort(q, n - m);
+    p = me.merge(p, m, me, q, n - m);
+
+    return p;
   };
 
   return me;

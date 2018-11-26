@@ -20,8 +20,8 @@ ListNode.prototype.insertAsSucc = function insertAsSucc(e) {
 
   A.succ = C;
   C.succ = B;
-  B.prev = C;
-  C.prev = A;
+  B.pred = C;
+  C.pred = A;
 
   return C;
 };
@@ -34,14 +34,14 @@ ListNode.prototype.insertAsSucc = function insertAsSucc(e) {
  */
 // B <--> A  插入 C;   B <--> C <--> A
 ListNode.prototype.insertAsPred = function insertAsPred(e) {
-  const B = this.prev;
+  const B = this.pred;
   const C = new ListNode(e);
   const A = this;
 
   B.succ = C;
   C.succ = A;
-  A.prev = C;
-  C.prev = B;
+  A.pred = C;
+  C.pred = B;
 
   return C;
 };
