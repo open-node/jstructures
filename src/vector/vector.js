@@ -52,7 +52,7 @@ function Vector(_elem = []) {
   /**
    * 删除指定秩的元素, 原后继元素依次前移
    * @time O(N)
-   * @space O(0)
+   * @space O(1)
    *
    * @param {number} r 要删除元素的秩 0 <= r <= size
    * @return {Anyone} e 删除的元素
