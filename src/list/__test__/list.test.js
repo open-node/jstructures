@@ -150,6 +150,20 @@ describe("Linked-list", () => {
     expect(list.last().data).toBe(3);
   });
 
+  it("list.deduplicate, case4", () => {
+    const list = new List();
+    list.insertAsFirst(3);
+
+    expect(list.size()).toBe(1);
+    expect(list.first().data).toBe(3);
+    expect(list.last().data).toBe(3);
+
+    expect(list.deduplicate()).toBe(0);
+    expect(list.size()).toBe(1);
+    expect(list.first().data).toBe(3);
+    expect(list.last().data).toBe(3);
+  });
+
   it("list.uniquify, case1", () => {
     const list = new List();
     list.insertAsFirst(3);
@@ -220,6 +234,20 @@ describe("Linked-list", () => {
     expect(list.last().data).toBe(2);
   });
 
+  it("list.uniquify, case5", () => {
+    const list = new List();
+    list.insertAsFirst(3);
+
+    expect(list.size()).toBe(1);
+    expect(list.first().data).toBe(3);
+    expect(list.last().data).toBe(3);
+
+    expect(list.uniquify()).toBe(0);
+    expect(list.size()).toBe(1);
+    expect(list.first().data).toBe(3);
+    expect(list.last().data).toBe(3);
+  });
+
   it("list.traverse", () => {
     const list = new List();
     list.insertAsFirst(5);
@@ -257,6 +285,7 @@ describe("Linked-list", () => {
     list.insertAsFirst(2);
     const node = list.insertAsFirst(1);
 
+    expect(list.selectMax().data).toBe(5);
     expect(list.selectMax(node, 2).data).toBe(2);
     expect(list.selectMax(node, 3).data).toBe(3);
     expect(list.selectMax(node, 4).data).toBe(4);
