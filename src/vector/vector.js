@@ -209,21 +209,6 @@ Vector.bubbleSort = function bubbleSort(_elem, lo = 0, hi = _elem.length) {
 };
 
 /**
- * 交换元素
- * @param {Vector} _elem 要操作的向量或者数组
- * @time O(1)
- * @space O(1)
- *
- * @param {number} i 索引
- * @param {number} j 索引
- */
-Vector.swap = function swap(_elem, i, j) {
-  const tmp = _elem[i];
-  _elem[i] = _elem[j];
-  _elem[j] = tmp;
-};
-
-/**
  * 排序算法 归并排序之合并
  * @time O(N)
  * @space O(logN)
@@ -236,28 +221,19 @@ Vector.swap = function swap(_elem, i, j) {
 Vector.merge = function merge(_elem, lo, mi, hi) {
   let l = lo;
   let r = mi;
-  let lMin = lo; // 左侧最小值的索引
+  let i = lo;
+  const B = _elem.slice(lo, mi); // 复制前子向量
   while (l < mi && r < hi) {
-    // 右侧的当前值比左侧最小值小
-    // 交换右侧和左侧当前值，注意不是左侧最小值, 左侧最小值不变
-    if (_elem[r] < _elem[lMin]) {
-      Vector.swap(_elem, r, l);
-      if (l === lMin) lMin = r;
-      mi += 1;
+    if (_elem[r] < B[l - lo]) {
+      _elem[i] = _elem[r];
       r += 1;
-    } else if (lMin !== l) {
-      // 右侧当前值不小于左侧最小值，则左侧最小值应该排到位,
-      // 此时需要交换左侧最小值和左侧当前值
-      Vector.swap(_elem, l, lMin);
-
-      // 说明转移到右侧的临时元素消耗完毕
-      // lMin 重新指向左侧当前值
-      if (lMin + 1 !== r) lMin += 1;
     } else {
-      lMin += 1;
+      _elem[i] = B[l - lo];
+      l += 1;
     }
-    l += 1;
+    i += 1;
   }
+  while (l < mi) _elem[i++] = B[l++ - lo];
 };
 
 /**

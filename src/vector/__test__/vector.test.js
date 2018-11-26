@@ -51,6 +51,7 @@ describe("Vector", () => {
     expect(vector.removeRange(0, 3)).toBe(3);
     expect(vector.size()).toBe(4);
 
+    expect(vector.removeRange(3, 0)).toBe(0);
     expect(vector[0]).toBe(7);
     expect(vector[3]).toBe(12);
   });
@@ -159,6 +160,18 @@ describe("Vector", () => {
     const nums = [1, 1, 2, 0, 2, 3, 4];
     Vector.merge(nums, 0, 3, 7);
     expect(nums).toEqual([0, 1, 1, 2, 2, 3, 4]);
+  });
+
+  it("vector merge case4", () => {
+    const nums = [2, 4, 5, 1, 6, 7];
+    Vector.merge(nums, 0, 3, 6);
+    expect(nums).toEqual([1, 2, 4, 5, 6, 7]);
+  });
+
+  it("vector merge case5", () => {
+    const nums = [3, 4, 5, 6, 1, 2, 3, 9];
+    Vector.merge(nums, 0, 4, 8);
+    expect(nums).toEqual([1, 2, 3, 3, 4, 5, 6, 9]);
   });
 
   it("vector sort, mergeSort", () => {
