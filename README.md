@@ -54,7 +54,7 @@ JavaScript 版本的数据结构，提供常用的数据结构封装，基于清
         -   [Parameters][42]
 -   [Vector][43]
     -   [Parameters][44]
-    -   [defineProperty][45]
+    -   [size][45]
     -   [insert][46]
         -   [Parameters][47]
     -   [removeRange][48]
@@ -317,7 +317,7 @@ Returns **[ListNode][69]** 排序后的起始节点
 
 Returns **[Vector][75]** Instance
 
-### defineProperty
+### size
 
 获取向量大小
 
@@ -545,7 +545,7 @@ Returns **void**
 
 [44]: #parameters-18
 
-[45]: #defineproperty
+[45]: #size-1
 
 [46]: #insert
 

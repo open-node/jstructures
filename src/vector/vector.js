@@ -4,16 +4,17 @@
  * @return {Vector} Instance
  */
 function Vector(_elem = []) {
-  /**
-   * 获取向量大小
-   * @time O(1)
-   * @space O(0)
-   * @memberof Vector
-   * @instance
-   *
-   * @return {number}
-   */
   Object.defineProperty(_elem, "size", {
+    /**
+     * 获取向量大小
+     * @time O(1)
+     * @space O(0)
+     * @memberof Vector
+     * @name size
+     * @instance
+     *
+     * @return {number}
+     */
     get: function size() {
       return _elem.length;
     }
