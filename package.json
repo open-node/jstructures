@@ -1,7 +1,7 @@
 {
-  "name": "javascript-data-structures",
+  "name": "JStructures",
   "version": "0.1.0",
-  "description": "JavaScript Data Structures incudes Vector, List, Tree, Graph, Heap...etc",
+  "description": "The project is JavaScript Data Structures incudes Vector, List, Tree, Graph, Heap...etc",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./src/*",

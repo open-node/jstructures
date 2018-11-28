@@ -16,3 +16,4 @@ npm-debug.log
 coverage
 coverage/*
 __test__
+docs/*
