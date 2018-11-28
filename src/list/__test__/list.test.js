@@ -3,35 +3,35 @@ const List = require("../list");
 describe("Linked-list", () => {
   it("new List, size should be empty", () => {
     const list = new List();
-    expect(list.size()).toBe(0);
-    expect(list.first()).toBe(null);
-    expect(list.last()).toBe(null);
+    expect(list.size).toBe(0);
+    expect(list.first).toBe(null);
+    expect(list.last).toBe(null);
   });
 
   it("list.insertAsFirst", () => {
     const list = new List();
     expect(list.insertAsFirst(1).data).toBe(1);
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(1);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(1);
 
     expect(list.insertAsFirst(2).data).toBe(2);
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(1);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(1);
   });
 
   it("list.insertAsLast", () => {
     const list = new List();
     expect(list.insertAsLast(1).data).toBe(1);
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(1);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(1);
 
     expect(list.insertAsLast(2).data).toBe(2);
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(2);
   });
 
   it("list.insertA", () => {
@@ -39,9 +39,9 @@ describe("Linked-list", () => {
     const node = list.insertAsLast(1);
     list.insertA(node, 2);
 
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(2);
   });
 
   it("list.insertB", () => {
@@ -49,9 +49,9 @@ describe("Linked-list", () => {
     const node = list.insertAsFirst(1);
     list.insertB(node, 2);
 
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(1);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(1);
   });
 
   it("list.remove", () => {
@@ -59,9 +59,9 @@ describe("Linked-list", () => {
     const node = list.insertAsFirst(1);
     list.remove(node);
 
-    expect(list.size()).toBe(0);
-    expect(list.first()).toBe(null);
-    expect(list.last()).toBe(null);
+    expect(list.size).toBe(0);
+    expect(list.first).toBe(null);
+    expect(list.last).toBe(null);
   });
 
   it("list.disordered", () => {
@@ -70,7 +70,7 @@ describe("Linked-list", () => {
     list.insertAsFirst(2);
     list.insertAsFirst(3);
 
-    expect(list.size()).toBe(3);
+    expect(list.size).toBe(3);
     expect(list.disordered()).toBe(2);
   });
 
@@ -106,14 +106,14 @@ describe("Linked-list", () => {
     list.insertAsFirst(2);
     list.insertAsFirst(3);
 
-    expect(list.size()).toBe(3);
-    expect(list.first().data).toBe(3);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(3);
+    expect(list.first.data).toBe(3);
+    expect(list.last.data).toBe(3);
 
     expect(list.deduplicate()).toBe(1);
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(3);
   });
 
   it("list.deduplicate, case2", () => {
@@ -123,14 +123,14 @@ describe("Linked-list", () => {
     list.insertAsFirst(3);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(4);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(4);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(3);
 
     expect(list.deduplicate()).toBe(2);
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(3);
   });
 
   it("list.deduplicate, case3", () => {
@@ -140,28 +140,28 @@ describe("Linked-list", () => {
     list.insertAsFirst(3);
     list.insertAsFirst(3);
 
-    expect(list.size()).toBe(4);
-    expect(list.first().data).toBe(3);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(4);
+    expect(list.first.data).toBe(3);
+    expect(list.last.data).toBe(3);
 
     expect(list.deduplicate()).toBe(3);
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(3);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(3);
+    expect(list.last.data).toBe(3);
   });
 
   it("list.deduplicate, case4", () => {
     const list = new List();
     list.insertAsFirst(3);
 
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(3);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(3);
+    expect(list.last.data).toBe(3);
 
     expect(list.deduplicate()).toBe(0);
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(3);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(3);
+    expect(list.last.data).toBe(3);
   });
 
   it("list.uniquify, case1", () => {
@@ -171,14 +171,14 @@ describe("Linked-list", () => {
     list.insertAsFirst(2);
     list.insertAsFirst(1);
 
-    expect(list.size()).toBe(4);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(4);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(3);
 
     expect(list.uniquify()).toBe(1);
-    expect(list.size()).toBe(3);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(3);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(3);
   });
 
   it("list.uniquify, case2", () => {
@@ -188,14 +188,14 @@ describe("Linked-list", () => {
     list.insertAsFirst(2);
     list.insertAsFirst(1);
 
-    expect(list.size()).toBe(4);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(4);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(2);
 
     expect(list.uniquify()).toBe(2);
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(2);
   });
 
   it("list.uniquify, case3", () => {
@@ -206,14 +206,14 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(1);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(2);
 
     expect(list.uniquify()).toBe(3);
-    expect(list.size()).toBe(2);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(2);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(2);
   });
 
   it("list.uniquify, case4", () => {
@@ -224,28 +224,28 @@ describe("Linked-list", () => {
     list.insertAsFirst(2);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(2);
 
     expect(list.uniquify()).toBe(4);
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(2);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(2);
   });
 
   it("list.uniquify, case5", () => {
     const list = new List();
     list.insertAsFirst(3);
 
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(3);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(3);
+    expect(list.last.data).toBe(3);
 
     expect(list.uniquify()).toBe(0);
-    expect(list.size()).toBe(1);
-    expect(list.first().data).toBe(3);
-    expect(list.last().data).toBe(3);
+    expect(list.size).toBe(1);
+    expect(list.first.data).toBe(3);
+    expect(list.last.data).toBe(3);
   });
 
   it("list.traverse", () => {
@@ -256,9 +256,9 @@ describe("Linked-list", () => {
     list.insertAsFirst(2);
     list.insertAsFirst(1);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(1);
-    expect(list.last().data).toBe(5);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(1);
+    expect(list.last.data).toBe(5);
 
     const _elem = [];
     list.traverse(e => _elem.push(e));
@@ -301,9 +301,9 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
     list.insertionSort();
     const _elem = [];
@@ -319,11 +319,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.insertionSort(list.first(), 5);
+    list.insertionSort(list.first, 5);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 4, 5]);
@@ -337,11 +337,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.insertionSort(list.first(), 2);
+    list.insertionSort(list.first, 2);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 5, 4]);
@@ -355,9 +355,9 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
     list.insertionSort(node, 3);
     const _elem = [];
@@ -373,11 +373,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.insertionSort(list.first(), list.size());
+    list.insertionSort(list.first, list.size);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 4, 5]);
@@ -391,9 +391,9 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
     list.selectionSort();
     const _elem = [];
@@ -409,11 +409,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.selectionSort(list.first(), 5);
+    list.selectionSort(list.first, 5);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 4, 5]);
@@ -427,11 +427,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.selectionSort(list.first(), 2);
+    list.selectionSort(list.first, 2);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 5, 4]);
@@ -445,9 +445,9 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
     list.selectionSort(node, 3);
     const _elem = [];
@@ -463,11 +463,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.selectionSort(list.first(), list.size());
+    list.selectionSort(list.first, list.size);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 4, 5]);
@@ -484,9 +484,9 @@ describe("Linked-list", () => {
     he.insertAsFirst(4);
     he.insertAsFirst(3);
 
-    me.merge(me.first(), 3, he, he.first(), 3);
+    me.merge(me.first, 3, he, he.first, 3);
 
-    expect(me.size()).toBe(6);
+    expect(me.size).toBe(6);
     const _elem = [];
     me.traverse(e => _elem.push(e));
     expect(_elem).toEqual([0, 1, 2, 3, 4, 5]);
@@ -502,9 +502,9 @@ describe("Linked-list", () => {
     me.insertAsFirst(1);
     me.insertAsFirst(0);
 
-    me.merge(me.first(), 3, me, node, 3);
+    me.merge(me.first, 3, me, node, 3);
 
-    expect(me.size()).toBe(6);
+    expect(me.size).toBe(6);
     const _elem = [];
     me.traverse(e => _elem.push(e));
     expect(_elem).toEqual([0, 1, 2, 3, 4, 5]);
@@ -520,9 +520,9 @@ describe("Linked-list", () => {
     me.insertAsFirst(4);
     me.insertAsFirst(3);
 
-    me.merge(me.first(), 3, me, node, 3);
+    me.merge(me.first, 3, me, node, 3);
 
-    expect(me.size()).toBe(6);
+    expect(me.size).toBe(6);
     const _elem = [];
     me.traverse(e => _elem.push(e));
     expect(_elem).toEqual([0, 1, 2, 3, 4, 5]);
@@ -539,9 +539,9 @@ describe("Linked-list", () => {
     he.insertAsFirst(1);
     he.insertAsFirst(0);
 
-    me.merge(me.first(), 3, he, he.first(), 3);
+    me.merge(me.first, 3, he, he.first, 3);
 
-    expect(me.size()).toBe(6);
+    expect(me.size).toBe(6);
     const _elem = [];
     me.traverse(e => _elem.push(e));
     expect(_elem).toEqual([0, 1, 2, 3, 4, 5]);
@@ -555,9 +555,9 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
     list.mergeSort();
     const _elem = [];
@@ -573,11 +573,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.mergeSort(list.first(), 5);
+    list.mergeSort(list.first, 5);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 4, 5]);
@@ -591,11 +591,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.mergeSort(list.first(), 2);
+    list.mergeSort(list.first, 2);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 5, 4]);
@@ -609,9 +609,9 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
     list.selectionSort(node, 3);
     const _elem = [];
@@ -627,11 +627,11 @@ describe("Linked-list", () => {
     list.insertAsFirst(1);
     list.insertAsFirst(2);
 
-    expect(list.size()).toBe(5);
-    expect(list.first().data).toBe(2);
-    expect(list.last().data).toBe(4);
+    expect(list.size).toBe(5);
+    expect(list.first.data).toBe(2);
+    expect(list.last.data).toBe(4);
 
-    list.selectionSort(list.first(), list.size());
+    list.selectionSort(list.first, list.size);
     const _elem = [];
     list.traverse(e => _elem.push(e));
     expect(_elem).toEqual([1, 2, 3, 4, 5]);

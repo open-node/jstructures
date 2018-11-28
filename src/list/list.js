@@ -1,145 +1,151 @@
-// List (Lined list)
 const ListNode = require("./list-node");
 
+const header = Symbol("header");
+const tailer = Symbol("tailer");
+const size = Symbol("size");
+
 /**
+ * Linked-list 类
+ * @class
  * @param {Array} _elem 初始数组
- * @return {Vector} Instance
+ * @return {List} Instance
  */
-function List() {
-  const me = {};
+class List {
+  /** Create a list instance */
+  constructor() {
+    this[header] = new ListNode(); // 头哨兵节点
+    this[tailer] = new ListNode(); // 尾哨兵节点
 
-  const header = new ListNode(); // 头哨兵节点
-  const tailer = new ListNode(); // 尾哨兵节点
+    this[header].succ = this[tailer];
+    this[tailer].pred = this[header];
 
-  header.succ = tailer;
-  tailer.pred = header;
-
-  let _size = 0; // 列表长度/大小
+    this[size] = 0; // 列表长度/大小
+  }
 
   /**
    * 获取列表长度/大小
-   * @time O(1)
+   * @tithis.O(1)
    * @space O(1)
    *
    * @return {number}
    */
-  me.size = function size() {
-    return _size;
-  };
+  get size() {
+    return this[size];
+  }
 
   /**
    * 获取列表首节点
-   * @time O(1)
+   * @tithis.O(1)
    * @space O(1)
    *
    * @return {ListNode}
    */
-  me.first = function first() {
-    if (_size === 0) return null;
-    return header.succ;
-  };
+  get first() {
+    if (this[size] === 0) return null;
+    return this[header].succ;
+  }
 
   /**
    * 获取列表末节点
-   * @time O(1)
+   * @tithis.O(1)
    * @space O(1)
    *
    * @return {ListNode}
    */
-  me.last = function last() {
-    if (_size === 0) return null;
-    return tailer.pred;
-  };
+  get last() {
+    if (this[size] === 0) return null;
+    return this[tailer].pred;
+  }
 
   /**
    * 将 e 作为首节点插入列表
-   * @time O(1)
+   * @tithis.O(1)
    * @space O(1)
    * @param {Anyone} e
    *
    * @return {ListNode}
    */
-  me.insertAsFirst = function insertAsFirst(e) {
-    _size += 1;
-    return header.insertAsSucc(e);
-  };
+  insertAsFirst(e) {
+    this[size] += 1;
+    return this[header].insertAsSucc(e);
+  }
 
   /**
    * 将 e 作为末节点插入列表
-   * @time O(1)
+   * @tithis.O(1)
    * @space O(1)
    * @param {Anyone} e
    *
    * @return {ListNode}
    */
-  me.insertAsLast = function insertAsLast(e) {
-    _size += 1;
-    return tailer.insertAsPred(e);
-  };
+  insertAsLast(e) {
+    this[size] += 1;
+    return this[tailer].insertAsPred(e);
+  }
 
   /**
    * e 作为节点 p 的直接后继插入
-   * @time O(N)
+   * @tithis.O(N)
    * @space O(1)
    *
    * @param {Anyone} e
    * @return {number}
    */
-  me.insertA = function insertA(p, e) {
-    _size += 1;
+  insertA(p, e) {
+    this[size] += 1;
     return p.insertAsSucc(e);
-  };
+  }
 
   /**
    * e 作为节点 p 的直接前驱插入
-   * @time O(N)
+   * @tithis.O(N)
    * @space O(1)
    *
    * @param {Anyone} e
    * @return {number}
    */
-  me.insertB = function insertB(p, e) {
-    _size += 1;
+  insertB(p, e) {
+    this[size] += 1;
     return p.insertAsPred(e);
-  };
+  }
 
   /**
    * 删除指定节点 p
-   * @time O(1)
+   * @tithis.O(1)
    * @space O(1)
    *
-   * @param {number} r 要删除元素的秩 0 <= r <= size
+   * @param {number} p 要删除元素
    * @return {Anyone} e 删除的元素
    */
-  me.remove = function remove(p) {
+  remove(p) {
     const e = p.data;
     p.pred.succ = p.succ; // 前驱的后继等于自己的后继
     p.succ.pred = p.pred; // 后继的前驱等于自己的前驱
 
-    _size -= 1;
+    this[size] -= 1;
     return e;
-  };
+  }
 
   /**
    * 返回列表中相邻元素逆序对总数, 当返回为0则代表列表有序
-   * @time O(N)
+   * @tithis.O(N)
    * @space O(1)
    *
    * @return {Number}
    */
-  me.disordered = function disordered() {
+  disordered() {
     let count = 0;
-    let node = header.succ;
-    while (tailer !== node) {
+    let node = this[header].succ;
+    while (this[tailer] !== node) {
       if (node.succ.data < node.data) count += 1;
       node = node.succ;
     }
     return count;
-  };
+  }
 
   /**
    * 从节点p往前查找目标元素 e 所在最后节点, 最多查询 n 个
-   * @time O(N)
+   * @tithis.O(N)
    * @space O(1)
    *
    * @param {Anyone} e 要搜索的元素
@@ -148,16 +154,16 @@ function List() {
    *
    * @return {ListNode} 等于 e 的元素最后的节点
    */
-  me.findElem = function findElem(e, n = _size, p = tailer) {
-    while (header !== (p = p.pred) && 0 < n--) {
+  findElem(e, n = this[size], p = this[tailer]) {
+    while (this[header] !== (p = p.pred) && 0 < n--) {
       if (e === p.data) return p;
     }
     return null;
-  };
+  }
 
   /**
    * 从节点p的n的真前驱中查找不大于 e 的最后者
-   * @time O(N)
+   * @tithis.O(N)
    * @space O(1)
    *
    * @param {Anyone} e 要搜索的元素
@@ -166,91 +172,91 @@ function List() {
    *
    * @return {ListNode} 等于 e 的元素最后的节点
    */
-  me.search = function search(e, n = _size, p = tailer) {
+  search(e, n = this[size], p = this[tailer]) {
     while (0 <= n--) {
       if ((p = p.pred).data <= e) return p;
     }
     return p;
-  };
+  }
 
   /**
    * 剔除重复元素，保证每个元素都是唯一的
-   * @time O(N²)
+   * @tithis.O(N²)
    * @space O(1)
    *
    * @return {number} 被删除的元素个数
    */
-  me.deduplicate = function deduplicate() {
-    if (_size < 2) return 0; // 退化平凡情况
-    const length = _size;
-    let p = header;
+  deduplicate() {
+    if (this[size] < 2) return 0; // 退化平凡情况
+    const length = this[size];
+    let p = this[header];
     let rank = 0;
-    while (tailer !== (p = p.succ)) {
-      const q = me.findElem(p.data, rank, p);
-      if (q) me.remove(q);
+    while (this[tailer] !== (p = p.succ)) {
+      const q = this.findElem(p.data, rank, p);
+      if (q) this.remove(q);
       else rank += 1;
     }
 
-    return length - _size;
-  };
+    return length - this[size];
+  }
 
   /**
    * 有序列表剔除重复元素，保证每个元素都是唯一的
-   * @time O(N)
+   * @tithis.O(N)
    * @space O(1)
    *
    * @return {number} 被删除的元素个数
    */
-  me.uniquify = function uniquify() {
-    if (_size < 2) return 0; // 退化平凡情况
-    const length = _size;
-    let p = header.succ;
+  uniquify() {
+    if (this[size] < 2) return 0; // 退化平凡情况
+    const length = this[size];
+    let p = this[header].succ;
     let q;
-    while (tailer !== (q = p.succ)) {
+    while (this[tailer] !== (q = p.succ)) {
       if (p.data !== q.data) p = q;
-      else me.remove(q);
+      else this.remove(q);
     }
 
-    return length - _size;
-  };
+    return length - this[size];
+  }
 
   /**
    * 向量的遍历
-   * @time O(N)
+   * @tithis.O(N)
    * @space O(1);
    * @param {function} visit 访问函数
    *
    * @return void
    */
-  me.traverse = function traverse(visit) {
-    let node = header;
-    while (tailer !== (node = node.succ)) {
+  traverse(visit) {
+    let node = this[header];
+    while (this[tailer] !== (node = node.succ)) {
       visit(node.data);
     }
-  };
+  }
 
   /**
    * 判断节点是否合法，存在，且不是首尾哨兵
-   * @time O(1)
+   * @tithis.O(1)
    * @space O(0)
    * @param {ListNode} p
    *
    * @return {boolean}
    */
-  me.valid = function valid(p) {
-    return p && header !== p && tailer !== p;
-  };
+  valid(p) {
+    return p && this[header] !== p && this[tailer] !== p;
+  }
 
   /**
    * 从起始位置 p 的n个元素中找到最大者, 相同大小后者优先
-   * @time O(N²)
+   * @tithis.O(N²)
    * @space O(1)
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
    * @return {ListNode}
    */
-  me.selectMax = function selectMax(p = header.succ, n = _size) {
+  selectMax(p = this[header].succ, n = this[size]) {
     let max = p;
     while (0 < n--) {
       if (p.data > max.data) max = p;
@@ -258,57 +264,57 @@ function List() {
     }
 
     return max;
-  };
+  }
 
   /**
    * 列表的插入排序, 对起始位置为 p 的 n 的元素进行排序
-   * @time O(N²)
+   * @tithis.O(N²)
    * @space O(1)
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
    * @return {ListNode} 排序后的起始节点
    */
-  me.insertionSort = function insertionSort(p = header.succ, n = _size) {
+  insertionSort(p = this[header].succ, n = this[size]) {
     const head = p.pred;
 
     for (let i = 0; i < n; i += 1) {
       // 逐各操作各点
-      me.insertA(me.search(p.data, i, p), p.data); // 查找到不大于当前值的位置
+      this.insertA(this.search(p.data, i, p), p.data); // 查找到不大于当前值的位置
       p = p.succ;
-      me.remove(p.pred);
+      this.remove(p.pred);
     }
 
     return head.succ;
-  };
+  }
 
   /**
    * 列表的选择排序, 对起始位置为 p 的 n 的元素进行排序
-   * @time O(N²)
+   * @tithis.O(N²)
    * @space O(1)
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
    * @return {ListNode} 排序后的起始节点
    */
-  me.selectionSort = function selectionSort(p = header.succ, n = _size) {
+  selectionSort(p = this[header].succ, n = this[size]) {
     // 定义好初始待排序区间 head -> tail
     const head = p.pred;
     let tail = p;
     for (let i = 0; i < n; i += 1) tail = tail.succ;
 
     while (1 < n) {
-      me.insertB(tail, me.remove(me.selectMax(head.succ, n)));
+      this.insertB(tail, this.remove(this.selectMax(head.succ, n)));
       tail = tail.pred;
       n -= 1;
     }
 
     return head.succ;
-  };
+  }
 
   /**
    * 列表的归并排序之归并, 对起始位置为 p 的 n 的元素进行排序
-   * @time O(N²)
+   * @tithis.O(N²)
    * @space O(1)
    * @param {ListNode} p 合并起始节点
    * @param {number} n
@@ -318,45 +324,43 @@ function List() {
    *
    * @return {ListNode} 归并后的起始节点
    */
-  me.merge = function merge(p, n, he, q, m) {
+  merge(p, n, he, q, m) {
     const head = p.pred;
     while (0 < m) {
       if (0 < n && p.data <= q.data) {
         if (q === (p = p.succ)) break;
         n -= 1;
       } else {
-        me.insertB(p, he.remove((q = q.succ).pred));
+        this.insertB(p, he.remove((q = q.succ).pred));
         m -= 1;
       }
     }
 
     return head.succ;
-  };
+  }
 
   /**
    * 列表的归并排序, 对起始位置为 p 的 n 的元素进行排序
-   * @time O(N²)
+   * @tithis.O(N²)
    * @space O(1)
    * @param {ListNode} p 排序起始节点
    * @param {number} n
    *
    * @return {ListNode} 排序后的起始节点
    */
-  me.mergeSort = function mergeSort(p = header.succ, n = _size) {
+  mergeSort(p = this[header].succ, n = this[size]) {
     if (n < 2) return p;
     const m = n >> 1;
 
     let q = p;
     for (let i = 0; i < m; i += 1) q = q.succ;
 
-    p = me.mergeSort(p, m);
-    q = me.mergeSort(q, n - m);
-    p = me.merge(p, m, me, q, n - m);
+    p = this.mergeSort(p, m);
+    q = this.mergeSort(q, n - m);
+    p = this.merge(p, m, this, q, n - m);
 
     return p;
-  };
-
-  return me;
+  }
 }
 
 module.exports = List;

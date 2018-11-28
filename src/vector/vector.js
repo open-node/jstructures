@@ -1,7 +1,6 @@
-// Vector
-
 /**
  * @param {Array} _elem 初始数组
+ * @class
  * @return {Vector} Instance
  */
 function Vector(_elem = []) {
@@ -9,17 +8,23 @@ function Vector(_elem = []) {
    * 获取向量大小
    * @time O(1)
    * @space O(0)
+   * @memberof Vector
+   * @instance
    *
    * @return {number}
    */
-  _elem.size = function size() {
-    return _elem.length;
-  };
+  Object.defineProperty(_elem, "size", {
+    get: function size() {
+      return _elem.length;
+    }
+  });
 
   /**
    * e 作为秩为 r 的元素插入，原后继元素依次后移
    * @time O(N)
    * @space O(0)
+   * @memberof Vector
+   * @instance
    *
    * @param {number} r 插入新元素的秩 0 <= r <= size
    * @param {Anyone} e
@@ -36,9 +41,11 @@ function Vector(_elem = []) {
    * 删除指定区间的元素, 原后继元素依次前移[lo, hi)
    * @time O(N)
    * @space O(0)
+   * @memberof Vector
+   * @instance
    *
    * @param {number} lo 要删除元素起始的秩 0 <= r <= size
-   * @param {number} lo 要删除元素结束的秩 0 <= r <= size
+   * @param {number} hi 要删除元素结束的秩 0 <= r <= size
    * @return {number}  删除的元素数量
    */
   _elem.removeRange = function removeRange(lo, hi) {
@@ -53,6 +60,8 @@ function Vector(_elem = []) {
    * 删除指定秩的元素, 原后继元素依次前移
    * @time O(N)
    * @space O(1)
+   * @memberof Vector
+   * @instance
    *
    * @param {number} r 要删除元素的秩 0 <= r <= size
    * @return {Anyone} e 删除的元素
@@ -68,6 +77,8 @@ function Vector(_elem = []) {
    * 返回向量中相邻元素逆序对总数, 当返回为0则代表向量有序
    * @time O(N)
    * @space O(1)
+   * @memberof Vector
+   * @instance
    *
    * @return {Number}
    */
@@ -82,10 +93,12 @@ function Vector(_elem = []) {
    * 在向量的区间 [lo, hi)查找元素等于 e 的最大秩
    * @time O(N)
    * @space O(1)
+   * @memberof Vector
+   * @instance
    *
    * @param {Anyone} e 要搜索的元素
-   * @param {number} lo 要查找的起始秩
-   * @param {number} hi 要查找的结束秩
+   * @param {number} [lo=0] 要查找的起始秩
+   * @param {number} [hi=_elem.length] 要查找的结束秩
    * @return {number} 等于 e 的元素最大的秩
    */
   _elem.findElem = function findElem(e, lo = 0, hi = _elem.length) {
@@ -97,6 +110,8 @@ function Vector(_elem = []) {
    * 在有序向量的区间[lo, hi)查找元素e 所在的秩, 0 <= lo <= hi <= size
    * @time O(logN)
    * @space O(1)
+   * @memberof Vector
+   * @instance
    *
    * @param {Anyone} e 要搜索的元素
    * @param {number} lo 要查找的起始秩
@@ -111,6 +126,8 @@ function Vector(_elem = []) {
    * 剔除重复元素，保证每个元素都是唯一的
    * @time O(N²)
    * @space O(1)
+   * @memberof Vector
+   * @instance
    *
    * @return {number} 被删除的元素个数
    */
@@ -130,6 +147,8 @@ function Vector(_elem = []) {
    * 有序向量剔除重复元素，保证每个元素都是唯一的
    * @time O(N)
    * @space O(1)
+   * @memberof Vector
+   * @instance
    *
    * @return {number} 被删除的元素个数
    */
@@ -149,6 +168,8 @@ function Vector(_elem = []) {
    * 向量的遍历
    * @time O(N)
    * @space O(1);
+   * @memberof Vector
+   * @instance
    * @param {function} visit 访问函数
    *
    * @return void
