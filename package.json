@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./src/*",
     "test": "jest",
-    "docs": "d=`head -n 6 README.md` && (echo \"$d\n\n\n\" && documentation build src/** -f md) > README.md",
+    "docs": "d=`head -n 25 README.md` && (echo \"$d\n\n\n\" && documentation build src/** -f md) > README.md",
     "ci": "npm run lint && npm run test -- --coverage"
   },
   "pre-commit": ["lint", "test"],
