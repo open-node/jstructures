@@ -1,4 +1,4 @@
-# javascript-data-structure
+# JStructure
 JavaScript 版本的数据结构，提供常用的数据结构封装，基于清华大学邓俊辉老师的数据结构课程
 
 [![Build status](https://travis-ci.com/open-node/javascript-data-structures.svg?branch=master)](https://travis-ci.org/open-node/javascript-data-structures)
@@ -95,9 +95,9 @@ Returns **[ListNode][69]** Instance
 
 #### Parameters
 
--   `e` **Anyone** 
+-   `e` **Anyone**
 
-Returns **[ListNode][69]** 
+Returns **[ListNode][69]**
 
 ### insertAsPred
 
@@ -105,9 +105,9 @@ Returns **[ListNode][69]**
 
 #### Parameters
 
--   `e` **Anyone** 
+-   `e` **Anyone**
 
-Returns **[ListNode][69]** 
+Returns **[ListNode][69]**
 
 ## List
 
@@ -123,19 +123,19 @@ Returns **[List][71]** Instance
 
 获取列表长度/大小
 
-Returns **[number][72]** 
+Returns **[number][72]**
 
 ### first
 
 获取列表首节点
 
-Returns **[ListNode][69]** 
+Returns **[ListNode][69]**
 
 ### last
 
 获取列表末节点
 
-Returns **[ListNode][69]** 
+Returns **[ListNode][69]**
 
 ### insertAsFirst
 
@@ -143,9 +143,9 @@ Returns **[ListNode][69]**
 
 #### Parameters
 
--   `e` **Anyone** 
+-   `e` **Anyone**
 
-Returns **[ListNode][69]** 
+Returns **[ListNode][69]**
 
 ### insertAsLast
 
@@ -153,9 +153,9 @@ Returns **[ListNode][69]**
 
 #### Parameters
 
--   `e` **Anyone** 
+-   `e` **Anyone**
 
-Returns **[ListNode][69]** 
+Returns **[ListNode][69]**
 
 ### insertA
 
@@ -163,10 +163,10 @@ e 作为节点 p 的直接后继插入
 
 #### Parameters
 
--   `p`  
--   `e` **Anyone** 
+-   `p`
+-   `e` **Anyone**
 
-Returns **[number][72]** 
+Returns **[number][72]**
 
 ### insertB
 
@@ -174,10 +174,10 @@ e 作为节点 p 的直接前驱插入
 
 #### Parameters
 
--   `p`  
--   `e` **Anyone** 
+-   `p`
+-   `e` **Anyone**
 
-Returns **[number][72]** 
+Returns **[number][72]**
 
 ### remove
 
@@ -193,7 +193,7 @@ Returns **Anyone** e 删除的元素
 
 返回列表中相邻元素逆序对总数, 当返回为0则代表列表有序
 
-Returns **[Number][72]** 
+Returns **[Number][72]**
 
 ### findElem
 
@@ -247,9 +247,9 @@ Returns **any** void
 
 #### Parameters
 
--   `p` **[ListNode][69]** 
+-   `p` **[ListNode][69]**
 
-Returns **[boolean][74]** 
+Returns **[boolean][74]**
 
 ### selectMax
 
@@ -260,7 +260,7 @@ Returns **[boolean][74]**
 -   `p` **[ListNode][69]** 排序起始节点 (optional, default `this[header].succ`)
 -   `n` **[number][72]**  (optional, default `this[size]`)
 
-Returns **[ListNode][69]** 
+Returns **[ListNode][69]**
 
 ### insertionSort
 
@@ -291,7 +291,7 @@ Returns **[ListNode][69]** 排序后的起始节点
 #### Parameters
 
 -   `p` **[ListNode][69]** 合并起始节点
--   `n` **[number][72]** 
+-   `n` **[number][72]**
 -   `he` **[List][71]** 要合并的另外一个列表
 -   `q` **[ListNode][69]** 合并的另外一个列表起始节点
 -   `m` **[number][72]** 要合并的另外一个列表的节点数
@@ -321,7 +321,7 @@ Returns **[Vector][75]** Instance
 
 获取向量大小
 
-Returns **[number][72]** 
+Returns **[number][72]**
 
 ### insert
 
@@ -330,9 +330,9 @@ e 作为秩为 r 的元素插入，原后继元素依次后移
 #### Parameters
 
 -   `r` **[number][72]** 插入新元素的秩 0 &lt;= r &lt;= size
--   `e` **Anyone** 
+-   `e` **Anyone**
 
-Returns **[number][72]** 
+Returns **[number][72]**
 
 ### removeRange
 
@@ -359,7 +359,7 @@ Returns **Anyone** e 删除的元素
 
 返回向量中相邻元素逆序对总数, 当返回为0则代表向量有序
 
-Returns **[Number][72]** 
+Returns **[Number][72]**
 
 ### findElem
 
@@ -430,7 +430,7 @@ Returns **[number][72]** 不大于 e 的元素最大的秩
 -   `lo` **[number][72]** 要查找的起始秩 (optional, default `0`)
 -   `hi` **[number][72]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **void** 
+Returns **void**
 
 ### merge
 
@@ -440,10 +440,10 @@ Returns **void**
 
 -   `_elem` **[Vector][75]** 要排序的向量或数据
 -   `lo` **[number][72]** 要查找的起始秩
--   `mi`  
+-   `mi`
 -   `hi` **[number][72]** 要查找的结束秩
 
-Returns **void** 
+Returns **void**
 
 ### mergeSort
 
@@ -455,7 +455,7 @@ Returns **void**
 -   `lo` **[number][72]** 要查找的起始秩 (optional, default `0`)
 -   `hi` **[number][72]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **void** 
+Returns **void**
 
 [1]: #listnode
 
