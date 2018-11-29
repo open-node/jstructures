@@ -7,8 +7,8 @@ JavaScript 版本的数据结构，提供常用的数据结构封装，基于清
 # 进度
 * [x] List (linked-list)
 * [x] Vector
-* [ ] Stack
-* [ ] Queue
+* [x] Stack
+* [x] Queue
 * [ ] BinTree
 * [ ] BST (BinanySearchTree)
 * [ ] BTree
@@ -18,8 +18,6 @@ JavaScript 版本的数据结构，提供常用的数据结构封装，基于清
   * [ ] MinHeap
   * [ ] LeftHeap
 * [ ] Priority Queue
-
-
 
 
 
@@ -69,32 +67,46 @@ JavaScript 版本的数据结构，提供常用的数据结构封装，基于清
         -   [Parameters][40]
     -   [mergeSort][41]
         -   [Parameters][42]
--   [Vector][43]
-    -   [Parameters][44]
-    -   [size][45]
-    -   [insert][46]
-        -   [Parameters][47]
-    -   [removeRange][48]
-        -   [Parameters][49]
-    -   [remove][50]
-        -   [Parameters][51]
-    -   [disordered][52]
-    -   [findElem][53]
-        -   [Parameters][54]
-    -   [search][55]
-        -   [Parameters][56]
-    -   [deduplicate][57]
-    -   [uniquify][58]
-    -   [traverse][59]
-        -   [Parameters][60]
-    -   [binSearch][61]
-        -   [Parameters][62]
-    -   [bubbleSort][63]
-        -   [Parameters][64]
-    -   [merge][65]
-        -   [Parameters][66]
-    -   [mergeSort][67]
+-   [Queue][43]
+    -   [enqueue][44]
+        -   [Parameters][45]
+    -   [dequeue][46]
+    -   [front][47]
+    -   [empty][48]
+    -   [size][49]
+-   [Stack][50]
+    -   [push][51]
+        -   [Parameters][52]
+    -   [pop][53]
+    -   [top][54]
+    -   [empty][55]
+    -   [size][56]
+-   [Vector][57]
+    -   [Parameters][58]
+    -   [size][59]
+    -   [insert][60]
+        -   [Parameters][61]
+    -   [removeRange][62]
+        -   [Parameters][63]
+    -   [remove][64]
+        -   [Parameters][65]
+    -   [disordered][66]
+    -   [findElem][67]
         -   [Parameters][68]
+    -   [search][69]
+        -   [Parameters][70]
+    -   [deduplicate][71]
+    -   [uniquify][72]
+    -   [traverse][73]
+        -   [Parameters][74]
+    -   [binSearch][75]
+        -   [Parameters][76]
+    -   [bubbleSort][77]
+        -   [Parameters][78]
+    -   [merge][79]
+        -   [Parameters][80]
+    -   [mergeSort][81]
+        -   [Parameters][82]
 
 ## ListNode
 
@@ -104,7 +116,7 @@ ListNode 类
 
 -   `e` **Anyone?** 初始数组
 
-Returns **[ListNode][69]** Instance
+Returns **[ListNode][83]** Instance
 
 ### insertAsSucc
 
@@ -114,7 +126,7 @@ Returns **[ListNode][69]** Instance
 
 -   `e` **Anyone**
 
-Returns **[ListNode][69]**
+Returns **[ListNode][83]**
 
 ### insertAsPred
 
@@ -124,7 +136,7 @@ Returns **[ListNode][69]**
 
 -   `e` **Anyone**
 
-Returns **[ListNode][69]**
+Returns **[ListNode][83]**
 
 ## List
 
@@ -132,27 +144,27 @@ Linked-list 类
 
 ### Parameters
 
--   `_elem` **[Array][70]** 初始数组
+-   `_elem` **[Array][84]** 初始数组
 
-Returns **[List][71]** Instance
+Returns **[List][85]** Instance
 
 ### size
 
 获取列表长度/大小
 
-Returns **[number][72]**
+Returns **[number][86]**
 
 ### first
 
 获取列表首节点
 
-Returns **[ListNode][69]**
+Returns **[ListNode][83]**
 
 ### last
 
 获取列表末节点
 
-Returns **[ListNode][69]**
+Returns **[ListNode][83]**
 
 ### insertAsFirst
 
@@ -162,7 +174,7 @@ Returns **[ListNode][69]**
 
 -   `e` **Anyone**
 
-Returns **[ListNode][69]**
+Returns **[ListNode][83]**
 
 ### insertAsLast
 
@@ -172,7 +184,7 @@ Returns **[ListNode][69]**
 
 -   `e` **Anyone**
 
-Returns **[ListNode][69]**
+Returns **[ListNode][83]**
 
 ### insertA
 
@@ -183,7 +195,7 @@ e 作为节点 p 的直接后继插入
 -   `p`
 -   `e` **Anyone**
 
-Returns **[number][72]**
+Returns **[number][86]**
 
 ### insertB
 
@@ -194,7 +206,7 @@ e 作为节点 p 的直接前驱插入
 -   `p`
 -   `e` **Anyone**
 
-Returns **[number][72]**
+Returns **[number][86]**
 
 ### remove
 
@@ -202,7 +214,7 @@ Returns **[number][72]**
 
 #### Parameters
 
--   `p` **[number][72]** 要删除元素
+-   `p` **[number][86]** 要删除元素
 
 Returns **Anyone** e 删除的元素
 
@@ -210,7 +222,7 @@ Returns **Anyone** e 删除的元素
 
 返回列表中相邻元素逆序对总数, 当返回为0则代表列表有序
 
-Returns **[Number][72]**
+Returns **[Number][86]**
 
 ### findElem
 
@@ -219,10 +231,10 @@ Returns **[Number][72]**
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `n` **[number][72]** 最大搜索次数 (optional, default `this[size]`)
--   `p` **[ListNode][69]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
+-   `n` **[number][86]** 最大搜索次数 (optional, default `this[size]`)
+-   `p` **[ListNode][83]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
 
-Returns **[ListNode][69]** 等于 e 的元素最后的节点
+Returns **[ListNode][83]** 等于 e 的元素最后的节点
 
 ### search
 
@@ -231,22 +243,22 @@ Returns **[ListNode][69]** 等于 e 的元素最后的节点
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `n` **[number][72]** 最大搜索次数 (optional, default `this[size]`)
--   `p` **[ListNode][69]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
+-   `n` **[number][86]** 最大搜索次数 (optional, default `this[size]`)
+-   `p` **[ListNode][83]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
 
-Returns **[ListNode][69]** 等于 e 的元素最后的节点
+Returns **[ListNode][83]** 等于 e 的元素最后的节点
 
 ### deduplicate
 
 剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][72]** 被删除的元素个数
+Returns **[number][86]** 被删除的元素个数
 
 ### uniquify
 
 有序列表剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][72]** 被删除的元素个数
+Returns **[number][86]** 被删除的元素个数
 
 ### traverse
 
@@ -254,7 +266,7 @@ Returns **[number][72]** 被删除的元素个数
 
 #### Parameters
 
--   `visit` **[function][73]** 访问函数
+-   `visit` **[function][87]** 访问函数
 
 Returns **any** void
 
@@ -264,9 +276,9 @@ Returns **any** void
 
 #### Parameters
 
--   `p` **[ListNode][69]**
+-   `p` **[ListNode][83]**
 
-Returns **[boolean][74]**
+Returns **[boolean][88]**
 
 ### selectMax
 
@@ -274,10 +286,10 @@ Returns **[boolean][74]**
 
 #### Parameters
 
--   `p` **[ListNode][69]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][72]**  (optional, default `this[size]`)
+-   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][86]**  (optional, default `this[size]`)
 
-Returns **[ListNode][69]**
+Returns **[ListNode][83]**
 
 ### insertionSort
 
@@ -285,10 +297,10 @@ Returns **[ListNode][69]**
 
 #### Parameters
 
--   `p` **[ListNode][69]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][72]**  (optional, default `this[size]`)
+-   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][86]**  (optional, default `this[size]`)
 
-Returns **[ListNode][69]** 排序后的起始节点
+Returns **[ListNode][83]** 排序后的起始节点
 
 ### selectionSort
 
@@ -296,10 +308,10 @@ Returns **[ListNode][69]** 排序后的起始节点
 
 #### Parameters
 
--   `p` **[ListNode][69]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][72]**  (optional, default `this[size]`)
+-   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][86]**  (optional, default `this[size]`)
 
-Returns **[ListNode][69]** 排序后的起始节点
+Returns **[ListNode][83]** 排序后的起始节点
 
 ### merge
 
@@ -307,13 +319,13 @@ Returns **[ListNode][69]** 排序后的起始节点
 
 #### Parameters
 
--   `p` **[ListNode][69]** 合并起始节点
--   `n` **[number][72]**
--   `he` **[List][71]** 要合并的另外一个列表
--   `q` **[ListNode][69]** 合并的另外一个列表起始节点
--   `m` **[number][72]** 要合并的另外一个列表的节点数
+-   `p` **[ListNode][83]** 合并起始节点
+-   `n` **[number][86]**
+-   `he` **[List][85]** 要合并的另外一个列表
+-   `q` **[ListNode][83]** 合并的另外一个列表起始节点
+-   `m` **[number][86]** 要合并的另外一个列表的节点数
 
-Returns **[ListNode][69]** 归并后的起始节点
+Returns **[ListNode][83]** 归并后的起始节点
 
 ### mergeSort
 
@@ -321,24 +333,104 @@ Returns **[ListNode][69]** 归并后的起始节点
 
 #### Parameters
 
--   `p` **[ListNode][69]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][72]**  (optional, default `this[size]`)
+-   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][86]**  (optional, default `this[size]`)
 
-Returns **[ListNode][69]** 排序后的起始节点
+Returns **[ListNode][83]** 排序后的起始节点
+
+## Queue
+
+Queue 类
+
+Returns **[Queue][89]** Instance
+
+### enqueue
+
+e 加入队列尾部(排队)
+
+#### Parameters
+
+-   `e` **Anyone**
+
+Returns **void**
+
+### dequeue
+
+将队首出队
+
+Returns **Anyone** e 之前压入的元素
+
+### front
+
+指向队首元素
+
+Returns **Anyone** e 之前压入的元素
+
+### empty
+
+判断队列是否为空
+
+Returns **[Boolean][88]**
+
+### size
+
+当前队列列长度(规模)
+
+Returns **[number][86]**
+
+## Stack
+
+Stack 类
+
+Returns **[Stack][90]** Instance
+
+### push
+
+e 作为压入栈顶
+
+#### Parameters
+
+-   `e` **Anyone**
+
+Returns **void**
+
+### pop
+
+将栈顶出栈
+
+Returns **Anyone** e 之前压入的元素
+
+### top
+
+指向栈顶元素，并不出栈
+
+Returns **Anyone** e 之前压入的元素
+
+### empty
+
+判断栈是否为空
+
+Returns **[Boolean][88]**
+
+### size
+
+当前栈高度(规模)
+
+Returns **[Number][86]**
 
 ## Vector
 
 ### Parameters
 
--   `_elem` **[Array][70]** 初始数组 (optional, default `[]`)
+-   `_elem` **[Array][84]** 初始数组 (optional, default `[]`)
 
-Returns **[Vector][75]** Instance
+Returns **[Vector][91]** Instance
 
 ### size
 
 获取向量大小
 
-Returns **[number][72]**
+Returns **[number][86]**
 
 ### insert
 
@@ -346,10 +438,10 @@ e 作为秩为 r 的元素插入，原后继元素依次后移
 
 #### Parameters
 
--   `r` **[number][72]** 插入新元素的秩 0 &lt;= r &lt;= size
+-   `r` **[number][86]** 插入新元素的秩 0 &lt;= r &lt;= size
 -   `e` **Anyone**
 
-Returns **[number][72]**
+Returns **[number][86]**
 
 ### removeRange
 
@@ -357,10 +449,10 @@ Returns **[number][72]**
 
 #### Parameters
 
--   `lo` **[number][72]** 要删除元素起始的秩 0 &lt;= r &lt;= size
--   `hi` **[number][72]** 要删除元素结束的秩 0 &lt;= r &lt;= size
+-   `lo` **[number][86]** 要删除元素起始的秩 0 &lt;= r &lt;= size
+-   `hi` **[number][86]** 要删除元素结束的秩 0 &lt;= r &lt;= size
 
-Returns **[number][72]** 删除的元素数量
+Returns **[number][86]** 删除的元素数量
 
 ### remove
 
@@ -368,7 +460,7 @@ Returns **[number][72]** 删除的元素数量
 
 #### Parameters
 
--   `r` **[number][72]** 要删除元素的秩 0 &lt;= r &lt;= size
+-   `r` **[number][86]** 要删除元素的秩 0 &lt;= r &lt;= size
 
 Returns **Anyone** e 删除的元素
 
@@ -376,7 +468,7 @@ Returns **Anyone** e 删除的元素
 
 返回向量中相邻元素逆序对总数, 当返回为0则代表向量有序
 
-Returns **[Number][72]**
+Returns **[Number][86]**
 
 ### findElem
 
@@ -385,10 +477,10 @@ Returns **[Number][72]**
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `lo` **[number][72]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][72]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **[number][72]** 等于 e 的元素最大的秩
+Returns **[number][86]** 等于 e 的元素最大的秩
 
 ### search
 
@@ -397,22 +489,22 @@ Returns **[number][72]** 等于 e 的元素最大的秩
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `lo` **[number][72]** 要查找的起始秩
--   `hi` **[number][72]** 要查找的结束秩
+-   `lo` **[number][86]** 要查找的起始秩
+-   `hi` **[number][86]** 要查找的结束秩
 
-Returns **[number][72]** 不大于 e 的元素最大的秩
+Returns **[number][86]** 不大于 e 的元素最大的秩
 
 ### deduplicate
 
 剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][72]** 被删除的元素个数
+Returns **[number][86]** 被删除的元素个数
 
 ### uniquify
 
 有序向量剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][72]** 被删除的元素个数
+Returns **[number][86]** 被删除的元素个数
 
 ### traverse
 
@@ -420,7 +512,7 @@ Returns **[number][72]** 被删除的元素个数
 
 #### Parameters
 
--   `visit` **[function][73]** 访问函数
+-   `visit` **[function][87]** 访问函数
 
 Returns **any** void
 
@@ -430,12 +522,12 @@ Returns **any** void
 
 #### Parameters
 
--   `_elem` **[Vector][75]** 要搜索的有序向量或有序数组
+-   `_elem` **[Vector][91]** 要搜索的有序向量或有序数组
 -   `e` **Anyone** 要搜索的元素
--   `lo` **[number][72]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][72]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **[number][72]** 不大于 e 的元素最大的秩
+Returns **[number][86]** 不大于 e 的元素最大的秩
 
 ### bubbleSort
 
@@ -443,9 +535,9 @@ Returns **[number][72]** 不大于 e 的元素最大的秩
 
 #### Parameters
 
--   `_elem` **[Vector][75]** 要排序的向量或数据
--   `lo` **[number][72]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][72]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `_elem` **[Vector][91]** 要排序的向量或数据
+-   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
 
 Returns **void**
 
@@ -455,10 +547,10 @@ Returns **void**
 
 #### Parameters
 
--   `_elem` **[Vector][75]** 要排序的向量或数据
--   `lo` **[number][72]** 要查找的起始秩
+-   `_elem` **[Vector][91]** 要排序的向量或数据
+-   `lo` **[number][86]** 要查找的起始秩
 -   `mi`
--   `hi` **[number][72]** 要查找的结束秩
+-   `hi` **[number][86]** 要查找的结束秩
 
 Returns **void**
 
@@ -468,9 +560,9 @@ Returns **void**
 
 #### Parameters
 
--   `_elem` **[Vector][75]** 要排序的向量或数据
--   `lo` **[number][72]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][72]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `_elem` **[Vector][91]** 要排序的向量或数据
+-   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
 
 Returns **void**
 
@@ -558,68 +650,100 @@ Returns **void**
 
 [42]: #parameters-17
 
-[43]: #vector
+[43]: #queue
 
-[44]: #parameters-18
+[44]: #enqueue
 
-[45]: #size-1
+[45]: #parameters-18
 
-[46]: #insert
+[46]: #dequeue
 
-[47]: #parameters-19
+[47]: #front
 
-[48]: #removerange
+[48]: #empty
 
-[49]: #parameters-20
+[49]: #size-1
 
-[50]: #remove-1
+[50]: #stack
 
-[51]: #parameters-21
+[51]: #push
 
-[52]: #disordered-1
+[52]: #parameters-19
 
-[53]: #findelem-1
+[53]: #pop
 
-[54]: #parameters-22
+[54]: #top
 
-[55]: #search-1
+[55]: #empty-1
 
-[56]: #parameters-23
+[56]: #size-2
 
-[57]: #deduplicate-1
+[57]: #vector
 
-[58]: #uniquify-1
+[58]: #parameters-20
 
-[59]: #traverse-1
+[59]: #size-3
 
-[60]: #parameters-24
+[60]: #insert
 
-[61]: #binsearch
+[61]: #parameters-21
 
-[62]: #parameters-25
+[62]: #removerange
 
-[63]: #bubblesort
+[63]: #parameters-22
 
-[64]: #parameters-26
+[64]: #remove-1
 
-[65]: #merge-1
+[65]: #parameters-23
 
-[66]: #parameters-27
+[66]: #disordered-1
 
-[67]: #mergesort-1
+[67]: #findelem-1
 
-[68]: #parameters-28
+[68]: #parameters-24
 
-[69]: #listnode
+[69]: #search-1
 
-[70]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[70]: #parameters-25
 
-[71]: #list
+[71]: #deduplicate-1
 
-[72]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[72]: #uniquify-1
 
-[73]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[73]: #traverse-1
 
-[74]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[74]: #parameters-26
 
-[75]: #vector
+[75]: #binsearch
+
+[76]: #parameters-27
+
+[77]: #bubblesort
+
+[78]: #parameters-28
+
+[79]: #merge-1
+
+[80]: #parameters-29
+
+[81]: #mergesort-1
+
+[82]: #parameters-30
+
+[83]: #listnode
+
+[84]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[85]: #list
+
+[86]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[87]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[88]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[89]: #queue
+
+[90]: #stack
+
+[91]: #vector
