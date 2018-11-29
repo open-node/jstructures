@@ -34,6 +34,35 @@
                 
                 <div class='toggle-target display-none'>
                   
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#binnodetravlevel'
+                        class='regular pre-open'>
+                        .travLevel
+                      </a></li>
+                    
+                      <li><a
+                        href='#binnodetravpre'
+                        class='regular pre-open'>
+                        .travPre
+                      </a></li>
+                    
+                      <li><a
+                        href='#binnodetravin'
+                        class='regular pre-open'>
+                        .travIn
+                      </a></li>
+                    
+                      <li><a
+                        href='#binnodetravpost'
+                        class='regular pre-open'>
+                        .travPost
+                      </a></li>
+                    
+                    </ul>
+                  
                   
                     <ul class='list-reset py1-ul pl1'>
                       <li class='h5'><span>Instance members</span></li>
@@ -42,6 +71,12 @@
                         href='#binnodedata'
                         class='regular pre-open'>
                         #data
+                      </a></li>
+                      
+                      <li><a
+                        href='#binnodeparent'
+                        class='regular pre-open'>
+                        #parent
                       </a></li>
                       
                       <li><a
@@ -63,21 +98,9 @@
                       </a></li>
                       
                       <li><a
-                        href='#binnodeparent'
-                        class='regular pre-open'>
-                        #parent
-                      </a></li>
-                      
-                      <li><a
                         href='#binnodesize'
                         class='regular pre-open'>
                         #size
-                      </a></li>
-                      
-                      <li><a
-                        href='#binnodesucc'
-                        class='regular pre-open'>
-                        #succ
                       </a></li>
                       
                       <li><a
@@ -147,6 +170,18 @@
                       </a></li>
                       
                       <li><a
+                        href='#binnodefromparentto'
+                        class='regular pre-open'>
+                        #fromParentTo
+                      </a></li>
+                      
+                      <li><a
+                        href='#binnodesucc'
+                        class='regular pre-open'>
+                        #succ
+                      </a></li>
+                      
+                      <li><a
                         href='#binnodeinsertaslc'
                         class='regular pre-open'>
                         #insertAsLC
@@ -158,26 +193,120 @@
                         #insertAsRC
                       </a></li>
                       
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#bintree'
+                  class=" toggle-sibling">
+                  BinTree
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
                       <li><a
-                        href='#binnodetravlevel'
+                        href='#bintreesize'
+                        class='regular pre-open'>
+                        #size
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeempty'
+                        class='regular pre-open'>
+                        #empty
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeroot'
+                        class='regular pre-open'>
+                        #root
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeinsertasroot'
+                        class='regular pre-open'>
+                        #insertAsRoot
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeinsertaslc'
+                        class='regular pre-open'>
+                        #insertAsLC
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeinsertasrc'
+                        class='regular pre-open'>
+                        #insertAsRC
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeattachaslc'
+                        class='regular pre-open'>
+                        #attachAsLC
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeattachasrc'
+                        class='regular pre-open'>
+                        #attachAsRC
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeremove'
+                        class='regular pre-open'>
+                        #remove
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreesecede'
+                        class='regular pre-open'>
+                        #secede
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeupdateheight'
+                        class='regular pre-open'>
+                        #updateHeight
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreeupdateheightabove'
+                        class='regular pre-open'>
+                        #updateHeightAbove
+                      </a></li>
+                      
+                      <li><a
+                        href='#bintreetravlevel'
                         class='regular pre-open'>
                         #travLevel
                       </a></li>
                       
                       <li><a
-                        href='#binnodetravpre'
+                        href='#bintreetravpre'
                         class='regular pre-open'>
                         #travPre
                       </a></li>
                       
                       <li><a
-                        href='#binnodetravin'
+                        href='#bintreetravin'
                         class='regular pre-open'>
                         #travIn
                       </a></li>
                       
                       <li><a
-                        href='#binnodetravpost'
+                        href='#bintreetravpost'
                         class='regular pre-open'>
                         #travPost
                       </a></li>
@@ -683,6 +812,355 @@
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='binnodetravlevel'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>travLevel(p, visit, 访问函数)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>当前节点作为根节点的子树层次遍历 BFS</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>travLevel(p: any, visit: any, 访问函数: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>): void</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>visit</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>访问函数</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>void</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='binnodetravpre'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>travPre(p, visit, 访问函数)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>当前节点作为根节点的子树前序遍历 DFS</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>travPre(p: <a href="#binnode">BinNode</a>, visit: any, 访问函数: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>): void</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    遍历的节点
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>visit</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>访问函数</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>void</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='binnodetravin'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>travIn(p, visit, 访问函数)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>当前节点作为根节点的子树中序遍历 DFS</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>travIn(p: <a href="#binnode">BinNode</a>, visit: any, 访问函数: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>): void</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    遍历的节点
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>visit</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>访问函数</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>void</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='binnodetravpost'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>travPost(p, visit, 访问函数)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>当前节点作为根节点的子树后序遍历 DFS</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>travPost(p: <a href="#binnode">BinNode</a>, visit: any, 访问函数: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>): void</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    遍历的节点
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>visit</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>访问函数</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>void</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
 
   
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
@@ -705,6 +1183,54 @@
  
   
     <div class='pre p1 fill-light mt0'>data</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='binnodeparent'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>parent</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>父节点</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>parent</div>
    
   
   
@@ -880,54 +1406,6 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='binnodeparent'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>parent</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>父节点</p>
-
- 
-  
-    <div class='pre p1 fill-light mt0'>parent</div>
-   
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
     <div class='border-bottom' id='binnodesize'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
@@ -960,75 +1438,6 @@
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='binnodesucc'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>succ</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>获取当前节点的直接后继</p>
-
- 
-  
-    <div class='pre p1 fill-light mt0'>succ</div>
-   
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>e</span> <code class='quiet'>(Anyone)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#binnode">BinNode</a></code>:
-        返回节点
-
-      
-    
   
 
   
@@ -1661,6 +2070,118 @@
       </div>
     </div>
   
+    <div class='border-bottom' id='binnodefromparentto'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>fromParentTo</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>获取来自父节点的引用</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>fromParentTo</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        [object, key]
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='binnodesucc'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>succ</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>获取中序遍历下的直接后继</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>succ</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        返回后继节点，不存在则返回 null
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
     <div class='border-bottom' id='binnodeinsertaslc'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
@@ -1799,7 +2320,960 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='binnodetravlevel'>
+</div>
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='bintree'>
+      BinTree
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>BinTree 类(二叉树类)</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>new BinTree(_root: any, e: Anyone, parent: <a href="#binnode">BinNode</a>, lc: <a href="#binnode">BinNode</a>, rc: <a href="#binnode">BinNode</a>, e: Anyone): <a href="#binnode">BinNode</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>_root</span> <code class='quiet'>(any
+            = <code>null</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(Anyone)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>parent</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    父节点
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>lc</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    左子节点
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>rc</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    右子节点
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(Anyone)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        Instance
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='bintreesize'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>size</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>树的规模</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>size</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeempty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>empty</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>树是否为空</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>empty</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeroot'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>root</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>树根节点</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>root</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeinsertasroot'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>insertAsRoot(e)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>作为树根节点插入</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>insertAsRoot(e: Anyone): <a href="#binnode">BinNode</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(Anyone)</code>
+	    要插入的数据元素
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeinsertaslc'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>insertAsLC(p, e)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>作为节点的左孩子插入</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>insertAsLC(p: <a href="#binnode">BinNode</a>, e: Anyone): <a href="#binnode">BinNode</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要插入的位置
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(Anyone)</code>
+	    要插入的数据元素
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeinsertasrc'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>insertAsRC(p, e)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>作为节点的右孩子插入</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>insertAsRC(p: <a href="#binnode">BinNode</a>, e: Anyone): <a href="#binnode">BinNode</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要插入的位置
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(Anyone)</code>
+	    要插入的数据元素
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeattachaslc'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>attachAsLC(p, s)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>作为节点的左孩子接入子树</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>attachAsLC(p: <a href="#binnode">BinNode</a>, s: <a href="#bintree">BinTree</a>): <a href="#binnode">BinNode</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要插入的位置
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>s</span> <code class='quiet'>(<a href="#bintree">BinTree</a>)</code>
+	    要接入的数
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeattachasrc'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>attachAsRC(p, s)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>作为节点的右孩子接入子树</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>attachAsRC(p: <a href="#binnode">BinNode</a>, s: <a href="#bintree">BinTree</a>): <a href="#binnode">BinNode</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要插入的位置
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>s</span> <code class='quiet'>(<a href="#bintree">BinTree</a>)</code>
+	    要接入的数
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#binnode">BinNode</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeremove'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>remove(p)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>删除某个节点作为根的子树</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>remove(p: <a href="#binnode">BinNode</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要删除的根节点
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        返回删除节点的总个数
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreesecede'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>secede(p)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>分离某个节点作为根的子树</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>secede(p: <a href="#binnode">BinNode</a>): <a href="#bintree">BinTree</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要删除的根节点
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#bintree">BinTree</a></code>:
+        返回分离出来的子树
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeupdateheight'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>updateHeight(p)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>更新节点的高度</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>updateHeight(p: <a href="#binnode">BinNode</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要更新的节点
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        返回更新后的高度
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreeupdateheightabove'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>updateHeightAbove(p)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>更新节点以及祖先节点的高度</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>updateHeightAbove(p: <a href="#binnode">BinNode</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="#binnode">BinNode</a>)</code>
+	    要更新的节点
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        返回更新后的高度
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='bintreetravlevel'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1811,7 +3285,7 @@
 
   
 
-  <p>当前节点作为根节点的子树层次遍历</p>
+  <p>树的层次遍历</p>
 
  
   
@@ -1876,7 +3350,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='binnodetravpre'>
+    <div class='border-bottom' id='bintreetravpre'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1888,7 +3362,7 @@
 
   
 
-  <p>当前节点作为根节点的子树前序遍历</p>
+  <p>树的前序遍历</p>
 
  
   
@@ -1953,7 +3427,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='binnodetravin'>
+    <div class='border-bottom' id='bintreetravin'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1965,7 +3439,7 @@
 
   
 
-  <p>当前节点作为根节点的子树中序遍历</p>
+  <p>树的中序遍历</p>
 
  
   
@@ -2030,7 +3504,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='binnodetravpost'>
+    <div class='border-bottom' id='bintreetravpost'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2042,7 +3516,7 @@
 
   
 
-  <p>当前节点作为根节点的子树后序遍历</p>
+  <p>树的后序遍历</p>
 
  
   

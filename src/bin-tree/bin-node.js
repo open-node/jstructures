@@ -11,30 +11,25 @@ const Queue = require("../queue/queue");
  * @return {BinNode} Instance
  */
 class BinNode {
-  /** 节点存储数据 */
-  data = null;
-
-  /** 左子节点 */
-  lc = null;
-
-  /** 右子节点 */
-  rc = null;
-
-  /** 以改节点为根的树高度 */
-  height = 0;
-
-  /** 父节点 */
-  parent = null;
-
-  /** 当前节点规模(以当前节点为根的子树包含的节点个数) */
-  size = 1;
-
   /** Create a BinNode instance */
   constructor(e = null, parent = null, lc = null, rc = null) {
+    /** 节点存储数据 */
     this.data = e;
+
+    /** 父节点 */
     this.parent = parent;
+
+    /** 左子节点 */
     this.lc = lc;
+
+    /** 右子节点 */
     this.rc = rc;
+
+    /** 以改节点为根的树高度 */
+    this.height = 0;
+
+    /** 当前节点规模(以当前节点为根的子树包含的节点个数) */
+    this.size = 1;
   }
 
   /**
@@ -89,7 +84,7 @@ class BinNode {
    * @return {Boolean}
    */
   get hasLChild() {
-    return !this.isRoot && this.lc;
+    return !!this.lc;
   }
 
   /**
@@ -100,7 +95,7 @@ class BinNode {
    * @return {Boolean}
    */
   get hasRChild() {
-    return !this.isRoot && this.rc;
+    return !!this.rc;
   }
 
   /**
@@ -111,7 +106,7 @@ class BinNode {
    * @return {Boolean}
    */
   get hasChild() {
-    return !this.isRoot && (this.lc || this.rc);
+    return !!this.lc || !!this.rc;
   }
 
   /**
@@ -122,7 +117,7 @@ class BinNode {
    * @return {Boolean}
    */
   get hasBothChild() {
-    return !this.isRoot && this.lc && this.rc;
+    return !!this.lc && !!this.rc;
   }
 
   /**
@@ -262,9 +257,9 @@ class BinNode {
    */
   static travIn(p, visit) {
     if (!p) return;
-    BinNode.travPre(p.lc, visit);
+    BinNode.travIn(p.lc, visit);
     visit(p.data);
-    BinNode.travPre(p.rc, visit);
+    BinNode.travIn(p.rc, visit);
   }
 
   /**
@@ -278,8 +273,8 @@ class BinNode {
    */
   static travPost(p, visit) {
     if (!p) return;
-    BinNode.travPre(p.lc, visit);
-    BinNode.travPre(p.rc, visit);
+    BinNode.travPost(p.lc, visit);
+    BinNode.travPost(p.rc, visit);
     visit(p.data);
   }
 }
