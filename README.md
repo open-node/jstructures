@@ -9,9 +9,9 @@ JavaScript 版本的数据结构，提供常用的数据结构封装，基于清
 * [x] Vector
 * [x] Stack
 * [x] Queue
-* [ ] BinTree
-* [ ] BST (BinanySearchTree)
-* [ ] BTree
+* [x] BinTree
+  * [ ] BST (BinanySearchTree)
+  * [ ] BTree
 * [ ] Graph
 * [ ] Heap
   * [ ] MaxHeap
@@ -29,88 +29,486 @@ JavaScript 版本的数据结构，提供常用的数据结构封装，基于清
 
 ### Table of Contents
 
--   [ListNode][1]
+-   [BinNode][1]
     -   [Parameters][2]
-    -   [insertAsSucc][3]
-        -   [Parameters][4]
-    -   [insertAsPred][5]
-        -   [Parameters][6]
--   [List][7]
-    -   [Parameters][8]
-    -   [size][9]
-    -   [first][10]
-    -   [last][11]
-    -   [insertAsFirst][12]
-        -   [Parameters][13]
-    -   [insertAsLast][14]
-        -   [Parameters][15]
-    -   [insertA][16]
-        -   [Parameters][17]
-    -   [insertB][18]
-        -   [Parameters][19]
-    -   [remove][20]
-        -   [Parameters][21]
-    -   [disordered][22]
-    -   [findElem][23]
-        -   [Parameters][24]
-    -   [search][25]
-        -   [Parameters][26]
-    -   [deduplicate][27]
-    -   [uniquify][28]
-    -   [traverse][29]
-        -   [Parameters][30]
-    -   [valid][31]
-        -   [Parameters][32]
-    -   [selectMax][33]
-        -   [Parameters][34]
-    -   [insertionSort][35]
-        -   [Parameters][36]
-    -   [selectionSort][37]
-        -   [Parameters][38]
-    -   [merge][39]
-        -   [Parameters][40]
-    -   [mergeSort][41]
-        -   [Parameters][42]
--   [Queue][43]
-    -   [enqueue][44]
+    -   [data][3]
+    -   [parent][4]
+    -   [lc][5]
+    -   [rc][6]
+    -   [height][7]
+    -   [size][8]
+    -   [isRoot][9]
+    -   [isLChild][10]
+    -   [isRChild][11]
+    -   [hasParent][12]
+    -   [hasLChild][13]
+    -   [hasRChild][14]
+    -   [hasChild][15]
+    -   [hasBothChild][16]
+    -   [isLeaf][17]
+    -   [sibling][18]
+    -   [uncle][19]
+    -   [fromParentTo][20]
+    -   [succ][21]
+    -   [insertAsLC][22]
+        -   [Parameters][23]
+    -   [insertAsRC][24]
+        -   [Parameters][25]
+    -   [travLevel][26]
+        -   [Parameters][27]
+    -   [travPre][28]
+        -   [Parameters][29]
+    -   [travIn][30]
+        -   [Parameters][31]
+    -   [travPost][32]
+        -   [Parameters][33]
+-   [BinTree][34]
+    -   [size][35]
+    -   [empty][36]
+    -   [root][37]
+    -   [root][38]
+        -   [Parameters][39]
+    -   [insertAsRoot][40]
+        -   [Parameters][41]
+    -   [insertAsLC][42]
+        -   [Parameters][43]
+    -   [insertAsRC][44]
         -   [Parameters][45]
-    -   [dequeue][46]
-    -   [front][47]
-    -   [empty][48]
-    -   [size][49]
--   [Stack][50]
-    -   [push][51]
-        -   [Parameters][52]
-    -   [pop][53]
-    -   [top][54]
-    -   [empty][55]
-    -   [size][56]
--   [Vector][57]
-    -   [Parameters][58]
-    -   [size][59]
-    -   [insert][60]
+    -   [attachAsLC][46]
+        -   [Parameters][47]
+    -   [attachAsRC][48]
+        -   [Parameters][49]
+    -   [remove][50]
+        -   [Parameters][51]
+    -   [secede][52]
+        -   [Parameters][53]
+    -   [travLevel][54]
+        -   [Parameters][55]
+    -   [travPre][56]
+        -   [Parameters][57]
+    -   [travIn][58]
+        -   [Parameters][59]
+    -   [travPost][60]
         -   [Parameters][61]
-    -   [removeRange][62]
-        -   [Parameters][63]
-    -   [remove][64]
+-   [ListNode][62]
+    -   [Parameters][63]
+    -   [insertAsSucc][64]
         -   [Parameters][65]
-    -   [disordered][66]
-    -   [findElem][67]
-        -   [Parameters][68]
-    -   [search][69]
-        -   [Parameters][70]
-    -   [deduplicate][71]
-    -   [uniquify][72]
-    -   [traverse][73]
+    -   [insertAsPred][66]
+        -   [Parameters][67]
+-   [List][68]
+    -   [Parameters][69]
+    -   [size][70]
+    -   [first][71]
+    -   [last][72]
+    -   [insertAsFirst][73]
         -   [Parameters][74]
-    -   [binSearch][75]
+    -   [insertAsLast][75]
         -   [Parameters][76]
-    -   [bubbleSort][77]
+    -   [insertA][77]
         -   [Parameters][78]
-    -   [merge][79]
+    -   [insertB][79]
         -   [Parameters][80]
-    -   [mergeSort][81]
+    -   [remove][81]
         -   [Parameters][82]
+    -   [disordered][83]
+    -   [findElem][84]
+        -   [Parameters][85]
+    -   [search][86]
+        -   [Parameters][87]
+    -   [deduplicate][88]
+    -   [uniquify][89]
+    -   [traverse][90]
+        -   [Parameters][91]
+    -   [valid][92]
+        -   [Parameters][93]
+    -   [selectMax][94]
+        -   [Parameters][95]
+    -   [insertionSort][96]
+        -   [Parameters][97]
+    -   [selectionSort][98]
+        -   [Parameters][99]
+    -   [merge][100]
+        -   [Parameters][101]
+    -   [mergeSort][102]
+        -   [Parameters][103]
+-   [Queue][104]
+    -   [enqueue][105]
+        -   [Parameters][106]
+    -   [dequeue][107]
+    -   [front][108]
+    -   [empty][109]
+    -   [size][110]
+-   [Stack][111]
+    -   [push][112]
+        -   [Parameters][113]
+    -   [pop][114]
+    -   [top][115]
+    -   [empty][116]
+    -   [size][117]
+-   [Vector][118]
+    -   [Parameters][119]
+    -   [size][120]
+    -   [insert][121]
+        -   [Parameters][122]
+    -   [removeRange][123]
+        -   [Parameters][124]
+    -   [remove][125]
+        -   [Parameters][126]
+    -   [disordered][127]
+    -   [findElem][128]
+        -   [Parameters][129]
+    -   [search][130]
+        -   [Parameters][131]
+    -   [deduplicate][132]
+    -   [uniquify][133]
+    -   [traverse][134]
+        -   [Parameters][135]
+    -   [binSearch][136]
+        -   [Parameters][137]
+    -   [bubbleSort][138]
+        -   [Parameters][139]
+    -   [merge][140]
+        -   [Parameters][141]
+    -   [mergeSort][142]
+        -   [Parameters][143]
+
+## BinNode
+
+BinNode 类(二叉树节点类)
+
+### Parameters
+
+-   `e` **Anyone**  (optional, default `null`)
+-   `parent` **[BinNode][144]** 父节点 (optional, default `null`)
+-   `lc` **[BinNode][144]** 左子节点 (optional, default `null`)
+-   `rc` **[BinNode][144]** 右子节点 (optional, default `null`)
+
+Returns **[BinNode][144]** Instance
+
+### data
+
+节点存储数据
+
+### parent
+
+父节点
+
+### lc
+
+左子节点
+
+### rc
+
+右子节点
+
+### height
+
+以该节点为根的树高度
+
+### size
+
+节点为根的子树规模
+
+Returns **[Boolean][145]** 
+
+### isRoot
+
+判断是否是根节点
+
+Returns **[Boolean][145]** 
+
+### isLChild
+
+判断是否是左子节点
+
+Returns **[Boolean][145]** 
+
+### isRChild
+
+判断是否是右子节点
+
+Returns **[Boolean][145]** 
+
+### hasParent
+
+判断是否有父节点
+
+Returns **[Boolean][145]** 
+
+### hasLChild
+
+判断是有左子节点
+
+Returns **[Boolean][145]** 
+
+### hasRChild
+
+判断是有左子节点
+
+Returns **[Boolean][145]** 
+
+### hasChild
+
+判断是有子节点
+
+Returns **[Boolean][145]** 
+
+### hasBothChild
+
+判断是有完整子节点 (即左右子节点都有)
+
+Returns **[Boolean][145]** 
+
+### isLeaf
+
+判断是否是叶子节点(没有子节点)
+
+Returns **[Boolean][145]** 
+
+### sibling
+
+兄弟节点
+
+Returns **[BinNode][144]** 
+
+### uncle
+
+叔叔节点(即父节点的兄弟节点)
+
+Returns **[BinNode][144]** 
+
+### fromParentTo
+
+获取来自父节点的引用
+
+Returns **[Array][146]** [object, key]
+
+### succ
+
+获取中序遍历下的直接后继
+
+Returns **[BinNode][144]** 返回后继节点，不存在则返回 null
+
+### insertAsLC
+
+将元素作为左子节点插入
+
+#### Parameters
+
+-   `e` **Anyone** 
+
+Returns **[BinNode][144]** 返回插入额节点
+
+### insertAsRC
+
+将元素作为右子节点插入
+
+#### Parameters
+
+-   `e` **Anyone** 
+
+Returns **[BinNode][144]** 返回插入额节点
+
+### travLevel
+
+当前节点作为根节点的子树层次遍历 BFS
+
+#### Parameters
+
+-   `p`  
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
+
+### travPre
+
+当前节点作为根节点的子树前序遍历 DFS
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 遍历的节点
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
+
+### travIn
+
+当前节点作为根节点的子树中序遍历 DFS
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 遍历的节点
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
+
+### travPost
+
+当前节点作为根节点的子树后序遍历 DFS
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 遍历的节点
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
+
+## BinTree
+
+BinTree 类(二叉树类)
+
+Returns **[BinNode][144]** Instance
+
+### size
+
+树的规模
+
+Returns **[number][148]** 
+
+### empty
+
+树是否为空
+
+Returns **[Boolean][145]** 
+
+### root
+
+树根节点
+
+Returns **[BinNode][144]** 
+
+### root
+
+重置根节点
+
+#### Parameters
+
+-   `_root`  
+
+Returns **[BinNode][144]** 
+
+### insertAsRoot
+
+作为树根节点插入
+
+#### Parameters
+
+-   `e` **Anyone** 要插入的数据元素
+
+Returns **[BinNode][144]** 
+
+### insertAsLC
+
+作为节点的左孩子插入
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 要插入的位置
+-   `e` **Anyone** 要插入的数据元素
+
+Returns **[BinNode][144]** 
+
+### insertAsRC
+
+作为节点的右孩子插入
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 要插入的位置
+-   `e` **Anyone** 要插入的数据元素
+
+Returns **[BinNode][144]** 
+
+### attachAsLC
+
+作为节点的左孩子接入子树
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 要插入的位置
+-   `s` **[BinTree][149]** 要接入的数
+
+Returns **[BinNode][144]** 
+
+### attachAsRC
+
+作为节点的右孩子接入子树
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 要插入的位置
+-   `s` **[BinTree][149]** 要接入的数
+
+Returns **[BinNode][144]** 
+
+### remove
+
+删除某个节点作为根的子树
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 要删除的根节点
+
+Returns **[number][148]** 返回删除节点的总个数
+
+### secede
+
+分离某个节点作为根的子树
+
+#### Parameters
+
+-   `p` **[BinNode][144]** 要删除的根节点
+
+Returns **[BinTree][149]** 返回分离出来的子树
+
+### travLevel
+
+树的层次遍历
+
+#### Parameters
+
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
+
+### travPre
+
+树的前序遍历
+
+#### Parameters
+
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
+
+### travIn
+
+树的中序遍历
+
+#### Parameters
+
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
+
+### travPost
+
+树的后序遍历
+
+#### Parameters
+
+-   `visit`  
+-   `访问函数` **[function][147]** 
+
+Returns **void** 
 
 ## ListNode
 
@@ -120,7 +518,7 @@ ListNode 类
 
 -   `e` **Anyone?** 初始数组
 
-Returns **[ListNode][83]** Instance
+Returns **[ListNode][150]** Instance
 
 ### insertAsSucc
 
@@ -128,9 +526,9 @@ Returns **[ListNode][83]** Instance
 
 #### Parameters
 
--   `e` **Anyone**
+-   `e` **Anyone** 
 
-Returns **[ListNode][83]**
+Returns **[ListNode][150]** 
 
 ### insertAsPred
 
@@ -138,9 +536,9 @@ Returns **[ListNode][83]**
 
 #### Parameters
 
--   `e` **Anyone**
+-   `e` **Anyone** 
 
-Returns **[ListNode][83]**
+Returns **[ListNode][150]** 
 
 ## List
 
@@ -148,27 +546,27 @@ Linked-list 类
 
 ### Parameters
 
--   `_elem` **[Array][84]** 初始数组
+-   `_elem` **[Array][146]** 初始数组
 
-Returns **[List][85]** Instance
+Returns **[List][151]** Instance
 
 ### size
 
 获取列表长度/大小
 
-Returns **[number][86]**
+Returns **[number][148]** 
 
 ### first
 
 获取列表首节点
 
-Returns **[ListNode][83]**
+Returns **[ListNode][150]** 
 
 ### last
 
 获取列表末节点
 
-Returns **[ListNode][83]**
+Returns **[ListNode][150]** 
 
 ### insertAsFirst
 
@@ -176,9 +574,9 @@ Returns **[ListNode][83]**
 
 #### Parameters
 
--   `e` **Anyone**
+-   `e` **Anyone** 
 
-Returns **[ListNode][83]**
+Returns **[ListNode][150]** 
 
 ### insertAsLast
 
@@ -186,9 +584,9 @@ Returns **[ListNode][83]**
 
 #### Parameters
 
--   `e` **Anyone**
+-   `e` **Anyone** 
 
-Returns **[ListNode][83]**
+Returns **[ListNode][150]** 
 
 ### insertA
 
@@ -196,10 +594,10 @@ e 作为节点 p 的直接后继插入
 
 #### Parameters
 
--   `p`
--   `e` **Anyone**
+-   `p`  
+-   `e` **Anyone** 
 
-Returns **[number][86]**
+Returns **[number][148]** 
 
 ### insertB
 
@@ -207,10 +605,10 @@ e 作为节点 p 的直接前驱插入
 
 #### Parameters
 
--   `p`
--   `e` **Anyone**
+-   `p`  
+-   `e` **Anyone** 
 
-Returns **[number][86]**
+Returns **[number][148]** 
 
 ### remove
 
@@ -218,7 +616,7 @@ Returns **[number][86]**
 
 #### Parameters
 
--   `p` **[number][86]** 要删除元素
+-   `p` **[number][148]** 要删除元素
 
 Returns **Anyone** e 删除的元素
 
@@ -226,7 +624,7 @@ Returns **Anyone** e 删除的元素
 
 返回列表中相邻元素逆序对总数, 当返回为0则代表列表有序
 
-Returns **[Number][86]**
+Returns **[Number][148]** 
 
 ### findElem
 
@@ -235,10 +633,10 @@ Returns **[Number][86]**
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `n` **[number][86]** 最大搜索次数 (optional, default `this[size]`)
--   `p` **[ListNode][83]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
+-   `n` **[number][148]** 最大搜索次数 (optional, default `this[size]`)
+-   `p` **[ListNode][150]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
 
-Returns **[ListNode][83]** 等于 e 的元素最后的节点
+Returns **[ListNode][150]** 等于 e 的元素最后的节点
 
 ### search
 
@@ -247,22 +645,22 @@ Returns **[ListNode][83]** 等于 e 的元素最后的节点
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `n` **[number][86]** 最大搜索次数 (optional, default `this[size]`)
--   `p` **[ListNode][83]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
+-   `n` **[number][148]** 最大搜索次数 (optional, default `this[size]`)
+-   `p` **[ListNode][150]** 从p节点往前查找, 默认为 tailer，查找全部 (optional, default `this[tailer]`)
 
-Returns **[ListNode][83]** 等于 e 的元素最后的节点
+Returns **[ListNode][150]** 等于 e 的元素最后的节点
 
 ### deduplicate
 
 剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][86]** 被删除的元素个数
+Returns **[number][148]** 被删除的元素个数
 
 ### uniquify
 
 有序列表剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][86]** 被删除的元素个数
+Returns **[number][148]** 被删除的元素个数
 
 ### traverse
 
@@ -270,7 +668,7 @@ Returns **[number][86]** 被删除的元素个数
 
 #### Parameters
 
--   `visit` **[function][87]** 访问函数
+-   `visit` **[function][147]** 访问函数
 
 Returns **any** void
 
@@ -280,9 +678,9 @@ Returns **any** void
 
 #### Parameters
 
--   `p` **[ListNode][83]**
+-   `p` **[ListNode][150]** 
 
-Returns **[boolean][88]**
+Returns **[boolean][145]** 
 
 ### selectMax
 
@@ -290,10 +688,10 @@ Returns **[boolean][88]**
 
 #### Parameters
 
--   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][86]**  (optional, default `this[size]`)
+-   `p` **[ListNode][150]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][148]**  (optional, default `this[size]`)
 
-Returns **[ListNode][83]**
+Returns **[ListNode][150]** 
 
 ### insertionSort
 
@@ -301,10 +699,10 @@ Returns **[ListNode][83]**
 
 #### Parameters
 
--   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][86]**  (optional, default `this[size]`)
+-   `p` **[ListNode][150]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][148]**  (optional, default `this[size]`)
 
-Returns **[ListNode][83]** 排序后的起始节点
+Returns **[ListNode][150]** 排序后的起始节点
 
 ### selectionSort
 
@@ -312,10 +710,10 @@ Returns **[ListNode][83]** 排序后的起始节点
 
 #### Parameters
 
--   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][86]**  (optional, default `this[size]`)
+-   `p` **[ListNode][150]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][148]**  (optional, default `this[size]`)
 
-Returns **[ListNode][83]** 排序后的起始节点
+Returns **[ListNode][150]** 排序后的起始节点
 
 ### merge
 
@@ -323,13 +721,13 @@ Returns **[ListNode][83]** 排序后的起始节点
 
 #### Parameters
 
--   `p` **[ListNode][83]** 合并起始节点
--   `n` **[number][86]**
--   `he` **[List][85]** 要合并的另外一个列表
--   `q` **[ListNode][83]** 合并的另外一个列表起始节点
--   `m` **[number][86]** 要合并的另外一个列表的节点数
+-   `p` **[ListNode][150]** 合并起始节点
+-   `n` **[number][148]** 
+-   `he` **[List][151]** 要合并的另外一个列表
+-   `q` **[ListNode][150]** 合并的另外一个列表起始节点
+-   `m` **[number][148]** 要合并的另外一个列表的节点数
 
-Returns **[ListNode][83]** 归并后的起始节点
+Returns **[ListNode][150]** 归并后的起始节点
 
 ### mergeSort
 
@@ -337,16 +735,16 @@ Returns **[ListNode][83]** 归并后的起始节点
 
 #### Parameters
 
--   `p` **[ListNode][83]** 排序起始节点 (optional, default `this[header].succ`)
--   `n` **[number][86]**  (optional, default `this[size]`)
+-   `p` **[ListNode][150]** 排序起始节点 (optional, default `this[header].succ`)
+-   `n` **[number][148]**  (optional, default `this[size]`)
 
-Returns **[ListNode][83]** 排序后的起始节点
+Returns **[ListNode][150]** 排序后的起始节点
 
 ## Queue
 
 Queue 类
 
-Returns **[Queue][89]** Instance
+Returns **[Queue][152]** Instance
 
 ### enqueue
 
@@ -354,9 +752,9 @@ e 加入队列尾部(排队)
 
 #### Parameters
 
--   `e` **Anyone**
+-   `e` **Anyone** 
 
-Returns **void**
+Returns **void** 
 
 ### dequeue
 
@@ -374,19 +772,19 @@ Returns **Anyone** e 之前压入的元素
 
 判断队列是否为空
 
-Returns **[Boolean][88]**
+Returns **[Boolean][145]** 
 
 ### size
 
 当前队列列长度(规模)
 
-Returns **[number][86]**
+Returns **[number][148]** 
 
 ## Stack
 
 Stack 类
 
-Returns **[Stack][90]** Instance
+Returns **[Stack][153]** Instance
 
 ### push
 
@@ -394,9 +792,9 @@ e 作为压入栈顶
 
 #### Parameters
 
--   `e` **Anyone**
+-   `e` **Anyone** 
 
-Returns **void**
+Returns **void** 
 
 ### pop
 
@@ -414,27 +812,27 @@ Returns **Anyone** e 之前压入的元素
 
 判断栈是否为空
 
-Returns **[Boolean][88]**
+Returns **[Boolean][145]** 
 
 ### size
 
 当前栈高度(规模)
 
-Returns **[Number][86]**
+Returns **[Number][148]** 
 
 ## Vector
 
 ### Parameters
 
--   `_elem` **[Array][84]** 初始数组 (optional, default `[]`)
+-   `_elem` **[Array][146]** 初始数组 (optional, default `[]`)
 
-Returns **[Vector][91]** Instance
+Returns **[Vector][154]** Instance
 
 ### size
 
 获取向量大小
 
-Returns **[number][86]**
+Returns **[number][148]** 
 
 ### insert
 
@@ -442,10 +840,10 @@ e 作为秩为 r 的元素插入，原后继元素依次后移
 
 #### Parameters
 
--   `r` **[number][86]** 插入新元素的秩 0 &lt;= r &lt;= size
--   `e` **Anyone**
+-   `r` **[number][148]** 插入新元素的秩 0 &lt;= r &lt;= size
+-   `e` **Anyone** 
 
-Returns **[number][86]**
+Returns **[number][148]** 
 
 ### removeRange
 
@@ -453,10 +851,10 @@ Returns **[number][86]**
 
 #### Parameters
 
--   `lo` **[number][86]** 要删除元素起始的秩 0 &lt;= r &lt;= size
--   `hi` **[number][86]** 要删除元素结束的秩 0 &lt;= r &lt;= size
+-   `lo` **[number][148]** 要删除元素起始的秩 0 &lt;= r &lt;= size
+-   `hi` **[number][148]** 要删除元素结束的秩 0 &lt;= r &lt;= size
 
-Returns **[number][86]** 删除的元素数量
+Returns **[number][148]** 删除的元素数量
 
 ### remove
 
@@ -464,7 +862,7 @@ Returns **[number][86]** 删除的元素数量
 
 #### Parameters
 
--   `r` **[number][86]** 要删除元素的秩 0 &lt;= r &lt;= size
+-   `r` **[number][148]** 要删除元素的秩 0 &lt;= r &lt;= size
 
 Returns **Anyone** e 删除的元素
 
@@ -472,7 +870,7 @@ Returns **Anyone** e 删除的元素
 
 返回向量中相邻元素逆序对总数, 当返回为0则代表向量有序
 
-Returns **[Number][86]**
+Returns **[Number][148]** 
 
 ### findElem
 
@@ -481,10 +879,10 @@ Returns **[Number][86]**
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `lo` **[number][148]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][148]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **[number][86]** 等于 e 的元素最大的秩
+Returns **[number][148]** 等于 e 的元素最大的秩
 
 ### search
 
@@ -493,22 +891,22 @@ Returns **[number][86]** 等于 e 的元素最大的秩
 #### Parameters
 
 -   `e` **Anyone** 要搜索的元素
--   `lo` **[number][86]** 要查找的起始秩
--   `hi` **[number][86]** 要查找的结束秩
+-   `lo` **[number][148]** 要查找的起始秩
+-   `hi` **[number][148]** 要查找的结束秩
 
-Returns **[number][86]** 不大于 e 的元素最大的秩
+Returns **[number][148]** 不大于 e 的元素最大的秩
 
 ### deduplicate
 
 剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][86]** 被删除的元素个数
+Returns **[number][148]** 被删除的元素个数
 
 ### uniquify
 
 有序向量剔除重复元素，保证每个元素都是唯一的
 
-Returns **[number][86]** 被删除的元素个数
+Returns **[number][148]** 被删除的元素个数
 
 ### traverse
 
@@ -516,7 +914,7 @@ Returns **[number][86]** 被删除的元素个数
 
 #### Parameters
 
--   `visit` **[function][87]** 访问函数
+-   `visit` **[function][147]** 访问函数
 
 Returns **any** void
 
@@ -526,12 +924,12 @@ Returns **any** void
 
 #### Parameters
 
--   `_elem` **[Vector][91]** 要搜索的有序向量或有序数组
+-   `_elem` **[Vector][154]** 要搜索的有序向量或有序数组
 -   `e` **Anyone** 要搜索的元素
--   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `lo` **[number][148]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][148]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **[number][86]** 不大于 e 的元素最大的秩
+Returns **[number][148]** 不大于 e 的元素最大的秩
 
 ### bubbleSort
 
@@ -539,11 +937,11 @@ Returns **[number][86]** 不大于 e 的元素最大的秩
 
 #### Parameters
 
--   `_elem` **[Vector][91]** 要排序的向量或数据
--   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `_elem` **[Vector][154]** 要排序的向量或数据
+-   `lo` **[number][148]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][148]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **void**
+Returns **void** 
 
 ### merge
 
@@ -551,12 +949,12 @@ Returns **void**
 
 #### Parameters
 
--   `_elem` **[Vector][91]** 要排序的向量或数据
--   `lo` **[number][86]** 要查找的起始秩
--   `mi`
--   `hi` **[number][86]** 要查找的结束秩
+-   `_elem` **[Vector][154]** 要排序的向量或数据
+-   `lo` **[number][148]** 要查找的起始秩
+-   `mi`  
+-   `hi` **[number][148]** 要查找的结束秩
 
-Returns **void**
+Returns **void** 
 
 ### mergeSort
 
@@ -564,190 +962,316 @@ Returns **void**
 
 #### Parameters
 
--   `_elem` **[Vector][91]** 要排序的向量或数据
--   `lo` **[number][86]** 要查找的起始秩 (optional, default `0`)
--   `hi` **[number][86]** 要查找的结束秩 (optional, default `_elem.length`)
+-   `_elem` **[Vector][154]** 要排序的向量或数据
+-   `lo` **[number][148]** 要查找的起始秩 (optional, default `0`)
+-   `hi` **[number][148]** 要查找的结束秩 (optional, default `_elem.length`)
 
-Returns **void**
+Returns **void** 
 
-[1]: #listnode
+[1]: #binnode
 
 [2]: #parameters
 
-[3]: #insertassucc
+[3]: #data
 
-[4]: #parameters-1
+[4]: #parent
 
-[5]: #insertaspred
+[5]: #lc
 
-[6]: #parameters-2
+[6]: #rc
 
-[7]: #list
+[7]: #height
 
-[8]: #parameters-3
+[8]: #size
 
-[9]: #size
+[9]: #isroot
 
-[10]: #first
+[10]: #islchild
 
-[11]: #last
+[11]: #isrchild
 
-[12]: #insertasfirst
+[12]: #hasparent
 
-[13]: #parameters-4
+[13]: #haslchild
 
-[14]: #insertaslast
+[14]: #hasrchild
 
-[15]: #parameters-5
+[15]: #haschild
 
-[16]: #inserta
+[16]: #hasbothchild
 
-[17]: #parameters-6
+[17]: #isleaf
 
-[18]: #insertb
+[18]: #sibling
 
-[19]: #parameters-7
+[19]: #uncle
 
-[20]: #remove
+[20]: #fromparentto
 
-[21]: #parameters-8
+[21]: #succ
 
-[22]: #disordered
+[22]: #insertaslc
 
-[23]: #findelem
+[23]: #parameters-1
 
-[24]: #parameters-9
+[24]: #insertasrc
 
-[25]: #search
+[25]: #parameters-2
 
-[26]: #parameters-10
+[26]: #travlevel
 
-[27]: #deduplicate
+[27]: #parameters-3
 
-[28]: #uniquify
+[28]: #travpre
 
-[29]: #traverse
+[29]: #parameters-4
 
-[30]: #parameters-11
+[30]: #travin
 
-[31]: #valid
+[31]: #parameters-5
 
-[32]: #parameters-12
+[32]: #travpost
 
-[33]: #selectmax
+[33]: #parameters-6
 
-[34]: #parameters-13
+[34]: #bintree
 
-[35]: #insertionsort
+[35]: #size-1
 
-[36]: #parameters-14
+[36]: #empty
 
-[37]: #selectionsort
+[37]: #root
 
-[38]: #parameters-15
+[38]: #root-1
 
-[39]: #merge
+[39]: #parameters-7
 
-[40]: #parameters-16
+[40]: #insertasroot
 
-[41]: #mergesort
+[41]: #parameters-8
 
-[42]: #parameters-17
+[42]: #insertaslc-1
 
-[43]: #queue
+[43]: #parameters-9
 
-[44]: #enqueue
+[44]: #insertasrc-1
 
-[45]: #parameters-18
+[45]: #parameters-10
 
-[46]: #dequeue
+[46]: #attachaslc
 
-[47]: #front
+[47]: #parameters-11
 
-[48]: #empty
+[48]: #attachasrc
 
-[49]: #size-1
+[49]: #parameters-12
 
-[50]: #stack
+[50]: #remove
 
-[51]: #push
+[51]: #parameters-13
 
-[52]: #parameters-19
+[52]: #secede
 
-[53]: #pop
+[53]: #parameters-14
 
-[54]: #top
+[54]: #travlevel-1
 
-[55]: #empty-1
+[55]: #parameters-15
 
-[56]: #size-2
+[56]: #travpre-1
 
-[57]: #vector
+[57]: #parameters-16
 
-[58]: #parameters-20
+[58]: #travin-1
 
-[59]: #size-3
+[59]: #parameters-17
 
-[60]: #insert
+[60]: #travpost-1
 
-[61]: #parameters-21
+[61]: #parameters-18
 
-[62]: #removerange
+[62]: #listnode
 
-[63]: #parameters-22
+[63]: #parameters-19
 
-[64]: #remove-1
+[64]: #insertassucc
 
-[65]: #parameters-23
+[65]: #parameters-20
 
-[66]: #disordered-1
+[66]: #insertaspred
 
-[67]: #findelem-1
+[67]: #parameters-21
 
-[68]: #parameters-24
+[68]: #list
 
-[69]: #search-1
+[69]: #parameters-22
 
-[70]: #parameters-25
+[70]: #size-2
 
-[71]: #deduplicate-1
+[71]: #first
 
-[72]: #uniquify-1
+[72]: #last
 
-[73]: #traverse-1
+[73]: #insertasfirst
 
-[74]: #parameters-26
+[74]: #parameters-23
 
-[75]: #binsearch
+[75]: #insertaslast
 
-[76]: #parameters-27
+[76]: #parameters-24
 
-[77]: #bubblesort
+[77]: #inserta
 
-[78]: #parameters-28
+[78]: #parameters-25
 
-[79]: #merge-1
+[79]: #insertb
 
-[80]: #parameters-29
+[80]: #parameters-26
 
-[81]: #mergesort-1
+[81]: #remove-1
 
-[82]: #parameters-30
+[82]: #parameters-27
 
-[83]: #listnode
+[83]: #disordered
 
-[84]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[84]: #findelem
 
-[85]: #list
+[85]: #parameters-28
 
-[86]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[86]: #search
 
-[87]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[87]: #parameters-29
 
-[88]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[88]: #deduplicate
 
-[89]: #queue
+[89]: #uniquify
 
-[90]: #stack
+[90]: #traverse
 
-[91]: #vector
+[91]: #parameters-30
+
+[92]: #valid
+
+[93]: #parameters-31
+
+[94]: #selectmax
+
+[95]: #parameters-32
+
+[96]: #insertionsort
+
+[97]: #parameters-33
+
+[98]: #selectionsort
+
+[99]: #parameters-34
+
+[100]: #merge
+
+[101]: #parameters-35
+
+[102]: #mergesort
+
+[103]: #parameters-36
+
+[104]: #queue
+
+[105]: #enqueue
+
+[106]: #parameters-37
+
+[107]: #dequeue
+
+[108]: #front
+
+[109]: #empty-1
+
+[110]: #size-3
+
+[111]: #stack
+
+[112]: #push
+
+[113]: #parameters-38
+
+[114]: #pop
+
+[115]: #top
+
+[116]: #empty-2
+
+[117]: #size-4
+
+[118]: #vector
+
+[119]: #parameters-39
+
+[120]: #size-5
+
+[121]: #insert
+
+[122]: #parameters-40
+
+[123]: #removerange
+
+[124]: #parameters-41
+
+[125]: #remove-2
+
+[126]: #parameters-42
+
+[127]: #disordered-1
+
+[128]: #findelem-1
+
+[129]: #parameters-43
+
+[130]: #search-1
+
+[131]: #parameters-44
+
+[132]: #deduplicate-1
+
+[133]: #uniquify-1
+
+[134]: #traverse-1
+
+[135]: #parameters-45
+
+[136]: #binsearch
+
+[137]: #parameters-46
+
+[138]: #bubblesort
+
+[139]: #parameters-47
+
+[140]: #merge-1
+
+[141]: #parameters-48
+
+[142]: #mergesort-1
+
+[143]: #parameters-49
+
+[144]: #binnode
+
+[145]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[146]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[147]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[148]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[149]: #bintree
+
+[150]: #listnode
+
+[151]: #list
+
+[152]: #queue
+
+[153]: #stack
+
+[154]: #vector
