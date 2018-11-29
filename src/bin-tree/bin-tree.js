@@ -2,26 +2,19 @@ const BinNode = require("./bin-node");
 
 const root = Symbol("root");
 const size = Symbol("size");
+const updateHeight = Symbol("updateHeight");
+const updateHeightAbove = Symbol("updateHeightAbove");
 
 /**
  * BinTree 类(二叉树类)
  * @class
- * @param {Anyone} e
- * @param {BinNode} parent 父节点
- * @param {BinNode} lc 左子节点
- * @param {BinNode} rc 右子节点
- * @param {Anyone} e
  * @return {BinNode} Instance
  */
 class BinTree {
   /** Create a BinTree instance */
-  constructor(_root = null) {
-    this[root] = _root;
+  constructor() {
+    this[root] = null;
     this[size] = 0;
-    if (_root) {
-      _root.parent = null;
-      this[size] = _root.size;
-    }
   }
 
   /**
@@ -59,6 +52,51 @@ class BinTree {
   }
 
   /**
+   * 重置根节点
+   * @time O(1)
+   * @space O(1)
+   *
+   * @return {BinNode}
+   */
+  set root(_root) {
+    this[root] = _root;
+    _root.parent = null;
+    this[size] = _root.size;
+
+    return this[root];
+  }
+
+  //  更新节点的高度
+  //  @time O(1)
+  //  @space O(1)
+  //  @param {BinNode} p 要更新的节点
+  //
+  //  @return {number} 返回更新后的高度
+  [updateHeight](p) {
+    if (p.isLeaf) {
+      p.height = 0;
+    } else {
+      p.height = 1 + Math.max(p.lc ? p.lc.height : 0, p.rc ? p.rc.height : 0);
+    }
+
+    return p.height;
+  }
+
+  // 更新节点以及祖先节点的高度
+  // @time O(logN)
+  // @space O(1)
+  // @param {BinNode} p 要更新的节点
+  //
+  // @return {number} 返回更新后的高度
+  [updateHeightAbove](p) {
+    while (p) {
+      const { height } = p;
+      if (height === this[updateHeight](p)) break;
+      p = p.parent;
+    }
+  }
+
+  /**
    * 作为树根节点插入
    * @time O(1)
    * @space O(1)
@@ -85,7 +123,7 @@ class BinTree {
   insertAsLC(p, e) {
     this[size] += 1;
     p.insertAsLC(e);
-    this.updateHeightAbove(p);
+    this[updateHeightAbove](p);
 
     return p.lc;
   }
@@ -102,7 +140,7 @@ class BinTree {
   insertAsRC(p, e) {
     this[size] += 1;
     p.insertAsRC(e);
-    this.updateHeightAbove(p);
+    this[updateHeightAbove](p);
 
     return p.rc;
   }
@@ -123,7 +161,7 @@ class BinTree {
 
     // 更新状态值
     this[size] += s.size;
-    this.updateHeightAbove(p);
+    this[updateHeightAbove](p);
 
     // 返回节点
     return p;
@@ -145,7 +183,7 @@ class BinTree {
 
     // 更新状态值
     this[size] += s.size;
-    this.updateHeightAbove(p);
+    this[updateHeightAbove](p);
 
     // 返回节点
     return p;
@@ -160,14 +198,19 @@ class BinTree {
    * @return {number} 返回删除节点的总个数
    */
   remove(p) {
-    // 切断父节点的引用
-    if (p.isRoot) return p.size;
+    if (p.isRoot) {
+      delete this[root];
+      this[root] = null;
+      this[size] = 0;
+      return p.size;
+    }
 
-    const [parent, key] = p.fromParentTo();
+    // 切断父节点的引用
+    const [parent, key] = p.fromParentTo;
     parent[key] = null;
 
     // 更新父节点高度
-    this.updateHeightAbove(p.parent);
+    this[updateHeightAbove](p.parent);
 
     // 更新树的规模
     this[size] -= p.size;
@@ -187,46 +230,19 @@ class BinTree {
     // 切断父节点的引用
     if (p.isRoot) return this;
 
-    const [parent, key] = p.fromParentTo();
+    const [parent, key] = p.fromParentTo;
     parent[key] = null;
 
     // 更新父节点高度
-    this.updateHeightAbove(p.parent);
+    this[updateHeightAbove](p.parent);
+
+    const subTree = new BinTree();
+    subTree.root = p;
 
     // 更新当前树的规模
-    this[size] -= p.size;
+    this[size] -= subTree.size;
 
-    return new BinTree(p);
-  }
-
-  /**
-   * 更新节点的高度
-   * @time O(1)
-   * @space O(1)
-   * @param {BinNode} p 要更新的节点
-   *
-   * @return {number} 返回更新后的高度
-   */
-  updateHeight(p) {
-    p.height = 1 + Math.max(p.lc ? p.lc.height : 0, p.rc ? p.rc.height : 0);
-
-    return p.height;
-  }
-
-  /**
-   * 更新节点以及祖先节点的高度
-   * @time O(1)
-   * @space O(1)
-   * @param {BinNode} p 要更新的节点
-   *
-   * @return {number} 返回更新后的高度
-   */
-  updateHeightAbove(p) {
-    while (p) {
-      const { height } = p;
-      if (height === this.updateHeight(p)) break;
-      p = p.parent;
-    }
+    return subTree;
   }
 
   /**
@@ -235,7 +251,7 @@ class BinTree {
    * @return {void}
    */
   travLevel(visit) {
-    if (this[root]) this[root].travLevel(visit);
+    if (this[root]) BinNode.travLevel(this[root], visit);
   }
 
   /**
@@ -244,7 +260,7 @@ class BinTree {
    * @return {void}
    */
   travPre(visit) {
-    if (this[root]) this[root].travPre(visit);
+    if (this[root]) BinNode.travPre(this[root], visit);
   }
 
   /**
@@ -253,7 +269,7 @@ class BinTree {
    * @return {void}
    */
   travIn(visit) {
-    if (this[root]) this[root].travIn(visit);
+    if (this[root]) BinNode.travIn(this[root], visit);
   }
 
   /**
@@ -262,7 +278,7 @@ class BinTree {
    * @return {void}
    */
   travPost(visit) {
-    if (this[root]) this[root].travPost(visit);
+    if (this[root]) BinNode.travPost(this[root], visit);
   }
 }
 

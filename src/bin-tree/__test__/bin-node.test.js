@@ -142,6 +142,7 @@ describe("Bin-node", () => {
     expect(p222.succ).toBe(null);
 
     expect(p.succ).toBe(p21);
+    expect(p.size).toBe(8);
   });
 
   it("Boundary conditions", () => {

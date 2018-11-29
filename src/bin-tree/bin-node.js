@@ -25,11 +25,19 @@ class BinNode {
     /** 右子节点 */
     this.rc = rc;
 
-    /** 以改节点为根的树高度 */
+    /** 以该节点为根的树高度 */
     this.height = 0;
+  }
 
-    /** 当前节点规模(以当前节点为根的子树包含的节点个数) */
-    this.size = 1;
+  /**
+   * 节点为根的子树规模
+   * @time O(N)
+   * @space O(1)
+   *
+   * @return {Boolean}
+   */
+  get size() {
+    return 1 + (this.lc ? this.lc.size : 0) + (this.rc ? this.rc.size : 0);
   }
 
   /**
