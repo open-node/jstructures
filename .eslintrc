@@ -35,6 +35,7 @@
     "indent": "off",
     "no-param-reassign": "off",
     "no-continue": "off",
+    "class-methods-use-this": "off",
     "no-console": 0,
     "no-debugger": 1,
     "no-var": 1,
