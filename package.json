@@ -8,6 +8,7 @@
     "test": "jest",
     "readme": "d=`head -n 25 README.md` && (echo \"$d\n\n\n\" && documentation build src/** -f md) > README.md",
     "docs": "documentation build src/** -f html -o ./docs",
+    "release": "npm run readme && npm run docs && npm publish --registry=https://registry.npmjs.org",
     "ci": "npm run lint && npm run test -- --coverage"
   },
   "pre-commit": ["lint", "test"],
