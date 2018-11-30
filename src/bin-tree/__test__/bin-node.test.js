@@ -132,16 +132,24 @@ describe("Bin-node", () => {
     expect(levelOrder).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
 
     expect(p22.succ).toBe(p222);
+    expect(p222.pred).toBe(p22);
     expect(p1.succ).toBe(p12);
+    expect(p12.pred).toBe(p1);
 
     expect(p11.succ).toBe(p1);
+    expect(p11.pred).toBe(null);
+    expect(p1.pred).toBe(p11);
     expect(p12.succ).toBe(p);
+    expect(p.pred).toBe(p12);
 
     expect(p21.succ).toBe(p2);
+    expect(p2.pred).toBe(p21);
     expect(p2.succ).toBe(p22);
+    expect(p22.pred).toBe(p2);
     expect(p222.succ).toBe(null);
 
     expect(p.succ).toBe(p21);
+    expect(p21.pred).toBe(p);
     expect(p.size).toBe(8);
   });
 

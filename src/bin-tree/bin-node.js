@@ -173,6 +173,26 @@ class BinNode {
   }
 
   /**
+   * 获取中序遍历下的直接前驱
+   * @time O(N)
+   * @space O(1)
+   *
+   * @return {BinNode} 返回前驱节点，不存在则返回 null
+   */
+  get pred() {
+    let t = this; // 记录后继的临时变量
+    // 如果当前节点存在左子树，则后继节点为左子树中最右节点
+    if (this.lc) {
+      t = this.lc;
+      while (t.hasRChild) t = t.rc;
+    } else {
+      while (t.isLChild) t = t.parent;
+      t = t.parent;
+    }
+    return t;
+  }
+
+  /**
    * 获取中序遍历下的直接后继
    * @time O(N)
    * @space O(1)
