@@ -1,6 +1,6 @@
 {
   "name": "jstructures",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "The project is JavaScript Data Structures incudes Vector, List, Tree, Graph, Heap...etc",
   "main": "index.js",
   "scripts": {
