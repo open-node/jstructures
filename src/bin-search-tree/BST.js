@@ -61,7 +61,7 @@ class BST extends BinTree {
    *
    * @return {BinNode} 返回接替者
    */
-  removeAt(x) {
+  static removeAt(x) {
     let succ;
     const [parent, key] = x.fromParentTo;
     if (!x.hasLChild) {

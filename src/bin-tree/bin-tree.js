@@ -28,6 +28,18 @@ class BinTree {
   }
 
   /**
+   * 更新树的规模
+   * @time O(1)
+   * @space O(1)
+   *
+   * @return {number}
+   */
+  set size(num) {
+    this[size] = num;
+    return num;
+  }
+
+  /**
    * 树是否为空
    * @time O(1)
    * @space O(1)
