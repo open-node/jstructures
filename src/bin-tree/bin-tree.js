@@ -3,12 +3,11 @@ const BinNode = require("./bin-node");
 const root = Symbol("root");
 const size = Symbol("size");
 const updateHeight = Symbol("updateHeight");
-const updateHeightAbove = Symbol("updateHeightAbove");
 
 /**
  * BinTree 类(二叉树类)
  * @class
- * @return {BinNode} Instance
+ * @return {BinTree} Instance
  */
 class BinTree {
   /** Create a BinTree instance */
@@ -82,13 +81,15 @@ class BinTree {
     return p.height;
   }
 
-  // 更新节点以及祖先节点的高度
-  // @time O(logN)
-  // @space O(1)
-  // @param {BinNode} p 要更新的节点
-  //
-  // @return {number} 返回更新后的高度
-  [updateHeightAbove](p) {
+  /**
+   * 更新节点以及祖先节点的高度
+   * @time O(logN)
+   * @space O(1)
+   * @param {BinNode} p 要更新的节点
+   *
+   * @return {number} 返回更新后的高度
+   */
+  updateHeightAbove(p) {
     while (p) {
       const { height } = p;
       if (height === this[updateHeight](p)) break;
@@ -123,7 +124,7 @@ class BinTree {
   insertAsLC(p, e) {
     this[size] += 1;
     p.insertAsLC(e);
-    this[updateHeightAbove](p);
+    this.updateHeightAbove(p);
 
     return p.lc;
   }
@@ -140,7 +141,7 @@ class BinTree {
   insertAsRC(p, e) {
     this[size] += 1;
     p.insertAsRC(e);
-    this[updateHeightAbove](p);
+    this.updateHeightAbove(p);
 
     return p.rc;
   }
@@ -161,7 +162,7 @@ class BinTree {
 
     // 更新状态值
     this[size] += s.size;
-    this[updateHeightAbove](p);
+    this.updateHeightAbove(p);
 
     // 返回节点
     return p;
@@ -183,7 +184,7 @@ class BinTree {
 
     // 更新状态值
     this[size] += s.size;
-    this[updateHeightAbove](p);
+    this.updateHeightAbove(p);
 
     // 返回节点
     return p;
@@ -210,7 +211,7 @@ class BinTree {
     parent[key] = null;
 
     // 更新父节点高度
-    this[updateHeightAbove](p.parent);
+    this.updateHeightAbove(p.parent);
 
     // 更新树的规模
     this[size] -= p.size;
@@ -234,7 +235,7 @@ class BinTree {
     parent[key] = null;
 
     // 更新父节点高度
-    this[updateHeightAbove](p.parent);
+    this.updateHeightAbove(p.parent);
 
     const subTree = new BinTree();
     subTree.root = p;

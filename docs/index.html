@@ -26,6 +26,34 @@
               
                 
                 <li><a
+                  href='#bst'
+                  class=" toggle-sibling">
+                  BST
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#bstsearch'
+                        class='regular pre-open'>
+                        #search
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
                   href='#binnode'
                   class=" toggle-sibling">
                   BinNode
@@ -718,6 +746,145 @@
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='bst'>
+      BST
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>BST 类(二叉搜索树类, 继承自 BinTree)</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>new BST(): <a href="#bintree">BinTree</a></div>
+   
+  
+  
+    <p>
+      Extends
+      
+        <a href="#bintree">BinTree</a>
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#bintree">BinTree</a></code>:
+        Instance
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='bstsearch'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>search(e)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>查找元素 e 所在的节点</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>search(e: Anyone): [<a href="#binnode">BinNode</a>]</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(Anyone)</code>
+	    要搜索的元素
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>[<a href="#binnode">BinNode</a>]</code>:
+        返回两项，第一项是搜索命中的节点，第二项是命中节点的父节点
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+</section>
+
         
           
           <section class='p2 mb2 clearfix bg-white minishadow'>
@@ -2410,7 +2577,7 @@
 
  
   
-    <div class='pre p1 fill-light mt0'>new BinTree(): <a href="#binnode">BinNode</a></div>
+    <div class='pre p1 fill-light mt0'>new BinTree(): <a href="#bintree">BinTree</a></div>
    
   
   
@@ -2429,7 +2596,7 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#binnode">BinNode</a></code>:
+      <code><a href="#bintree">BinTree</a></code>:
         Instance
 
       

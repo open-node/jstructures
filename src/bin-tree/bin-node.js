@@ -305,6 +305,21 @@ class BinNode {
     BinNode.travPost(p.rc, visit);
     visit(p.data);
   }
+
+  /**
+   * 交换量几个节点的数据
+   * @time O(1)
+   * @space O(1)
+   *
+   * @param {BinNode} node1 要交换的节点1
+   * @param {BinNode} node2 要交换的节点2
+   * @return {void}
+   */
+  static swap(node1, node2) {
+    const t = node1.data;
+    node1.data = node2.data;
+    node2.data = t;
+  }
 }
 
 module.exports = BinNode;
