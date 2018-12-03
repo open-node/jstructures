@@ -4,7 +4,7 @@ const BinTree = require("../bin-tree/bin-tree");
 /**
  * BST 类(二叉搜索树类, 继承自 BinTree)
  * @class
- * @return {BinTree} Instance
+ * @return {BST} Instance
  */
 class BST extends BinTree {
   /**
