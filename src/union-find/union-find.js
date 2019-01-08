@@ -2,13 +2,13 @@ const parent = Symbol("parent");
 const find = Symbol("find");
 
 /**
- * Segment-tree 线段树(区间树)类
+ * UnionFind 并查集类
  * @class
- * @param {Array} _elem 初始数组
- * @return {List} Instance
+ * @param {Number} size 集合规模
+ * @return {UnionFind} Instance
  */
-class SegmentTree {
-  /** Create a SegmentTree instance */
+class UnionFind {
+  /** Create a UnionFind instance */
   constructor(size) {
     this[parent] = Array(size);
     for (let i = 0; i < size; i += 1) {
@@ -18,7 +18,7 @@ class SegmentTree {
 
   /**
    * 获取数据长度/大小
-   * @tithis.O(1)
+   * @this.O(1)
    * @space O(1)
    *
    * @return {number}
@@ -72,4 +72,4 @@ class SegmentTree {
   }
 }
 
-module.exports = SegmentTree;
+module.exports = UnionFind;
