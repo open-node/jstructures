@@ -1,5 +1,4 @@
 const parent = Symbol("parent");
-const find = Symbol("find");
 
 /**
  * UnionFind 并查集类
@@ -35,9 +34,9 @@ class UnionFind {
    *
    * @return {Number}
    */
-  [find](p) {
+  find(p) {
     if (p !== this[parent][p]) {
-      this[parent][p] = this[find](this[parent][p]);
+      this[parent][p] = this.find(this[parent][p]);
     }
     return this[parent][p];
   }
@@ -52,8 +51,8 @@ class UnionFind {
    * @return {void}
    */
   union(p, q) {
-    const pP = this[find](p);
-    const qP = this[find](q);
+    const pP = this.find(p);
+    const qP = this.find(q);
     if (pP === qP) return;
     this[parent][pP] = qP;
   }
@@ -68,7 +67,7 @@ class UnionFind {
    * @return {Boolean}
    */
   isConnected(p, q) {
-    return this[find](p) === this[find](q);
+    return this.find(p) === this.find(q);
   }
 }
 
