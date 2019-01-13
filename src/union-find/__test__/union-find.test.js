@@ -31,5 +31,13 @@ describe("UnionFind", () => {
     instance.union(0, 0);
     expect(instance.isConnected(0, 3)).toBe(false);
     expect(instance.isConnected(0, 6)).toBe(false);
+
+    const str = instance.toString();
+    expect(str).toBe(`Set: 0, included: 0
+Set: 1, included: 1
+Set: 2, included: 2
+Set: 9, included: 3, 4, 5, 6, 9
+Set: 7, included: 7
+Set: 8, included: 8`);
   });
 });
