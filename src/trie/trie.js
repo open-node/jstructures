@@ -28,6 +28,17 @@ class Trie {
   }
 
   /**
+   * 获取字典树的跟节点
+   * @time O(1)
+   * @space O(1)
+   *
+   * @return {number}
+   */
+  get root() {
+    return this[root];
+  }
+
+  /**
    * 插入 word
    * @time O(N)
    * @space O(0)
@@ -36,7 +47,7 @@ class Trie {
    * @return {void}
    */
   insert(word) {
-    let node = this[root];
+    let node = this.root;
     word = word.toLowerCase();
     for (let i = 0; i < word.length; i += 1) {
       const index = word[i].charCodeAt() - 97;
@@ -60,7 +71,7 @@ class Trie {
    * @return {Boolean}
    */
   find(word) {
-    let node = this[root];
+    let node = this.root;
     word = word.toLowerCase();
     for (let i = 0; i < word.length; i += 1) {
       const index = word[i].charCodeAt() - 97;
