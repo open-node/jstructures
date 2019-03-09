@@ -24,7 +24,7 @@ class List {
 
   /**
    * 获取列表长度/大小
-   * @tithis.O(1)
+   * @time O(1)
    * @space O(1)
    *
    * @return {number}
